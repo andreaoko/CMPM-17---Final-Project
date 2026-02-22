@@ -5,7 +5,7 @@ from io import BytesIO # Helps open image
 from IPython.display import display, clear_output # For displaying progress
 import os # helps manage file paths
 
-df = pd.read_csv("images_all/UCSC_iNat_observations.csv")
+df = pd.read_excel("UCSC_iNat_observations.xlsx")
 
 df['common_name'] = df['common_name'].str.lower()
 
