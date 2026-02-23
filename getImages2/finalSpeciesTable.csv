@@ -1,0 +1,54 @@
+common_name,scientific_name,taxon_family_name,taxon_genus_name,count,region,is_medicinal ,is_poisonous
+coast redwood,Sequoia sempervirens,Cupressaceae,Sequoia,364,,1,0
+pacific hound's tongue,Adelinia grandis,Boraginaceae,Adelinia,271,,1,0
+redwood sorrel,Oxalis smalliana,Oxalidaceae,Oxalis,266,,1,1
+california bay,Umbellularia californica,Lauraceae,Umbellularia,265,,1,0
+western heart's ease,Viola ocellata,Violaceae,Viola,241,,0,0
+california poppy,Eschscholzia californica,Papaveraceae,Eschscholzia,225,,1,0
+woodland strawberry,Fragaria vesca,Rosaceae,Fragaria,177,,1,0
+bermuda buttercup,Oxalis pes-caprae,Oxalidaceae,Oxalis,170,,1,1
+coyote brush,Baccharis pilularis,Asteraceae,Baccharis,157,,1,0
+sun cup,Taraxia ovata,Onagraceae,Taraxia,154,,0,0
+western blue-eyed grass,Sisyrinchium bellum,Iridaceae,Sisyrinchium,154,,1,0
+tanoak,Notholithocarpus densiflorus,Fagaceae,Notholithocarpus,151,,1,0
+broadleaf forget-me-not,Myosotis latifolia,Boraginaceae,Myosotis,143,,0,0
+pacific poison oak,Toxicodendron diversilobum,Anacardiaceae,Toxicodendron,134,,1,1
+scarlet pimpernel,Lysimachia arvensis,Primulaceae,Lysimachia,133,,1,1
+pacific madrone,Arbutus menziesii,Ericaceae,Arbutus,133,,1,0
+ribwort plantain,Plantago lanceolata,Plantaginaceae,Plantago,128,,1,0
+pacific trillium,Trillium ovatum,Melanthiaceae,Trillium,126,,1,1
+lawn daisy,Bellis perennis,Asteraceae,Bellis,119,,1,1
+coast live oak,Quercus agrifolia,Fagaceae,Quercus,118,,1,1
+western sword fern,Polystichum munitum,Dryopteridaceae,Polystichum,116,,1,0
+common bracken,Pteridium aquilinum,Dennstaedtiaceae,Pteridium,115,,1,1
+miner's lettuce,Claytonia perfoliata,Montiaceae,Claytonia,111,,1,0
+fremont's death camas,Toxicoscordion fremontii,Melanthiaceae,Toxicoscordion,110,,0,1
+greater quaking grass,Briza maxima,Poaceae,Briza,103,,1,0
+milkmaids,Cardamine californica,Brassicaceae,Cardamine,102,,0,0
+pacific sanicle,Sanicula crassicaulis,Apiaceae,Sanicula,95,,1,0
+western starflower,Lysimachia latifolia,Primulaceae,Lysimachia,94,,0,0
+mediterranean stork's-bill,Erodium botrys,Geraniaceae,Erodium,94,,1,0
+california fetid adderstongue,Scoliopus bigelovii,Liliaceae,Scoliopus,92,,0,0
+broad-leaved helleborine,Epipactis helleborine,Orchidaceae,Epipactis,87,,1,1
+narrow-leaved clover,Trifolium angustifolium,Fabaceae,Trifolium,86,,1,0
+california hedge nettle,Stachys bullata,Lamiaceae,Stachys,86,,1,0
+redwood violet,Viola sempervirens,Violaceae,Viola,86,,1,0
+evergreen huckleberry,Vaccinium ovatum,Ericaceae,Vaccinium,85,,1,0
+white globe lily,Calochortus albus,Liliaceae,Calochortus,76,,1,0
+french broom,Genista monspessulana,Fabaceae,Genista,74,,0,1
+garden radish,Raphanus raphanistrum sativus,Brassicaceae,Raphanus,69,,1,0
+yerba buena,Clinopodium douglasii,Lamiaceae,Clinopodium,68,,1,0
+pink honeysuckle,Lonicera hispidula,Caprifoliaceae,Lonicera,67,,1,1
+wavy-leafed soap plant,Chlorogalum pomeridianum,Asparagaceae,Chlorogalum,64,,1,1
+coastal woodfern,Dryopteris arguta,Dryopteridaceae,Dryopteris,59,,1,0
+orange bush monkeyflower,Diplacus aurantiacus,Phrymaceae,Diplacus,57,,1,0
+field marigold,Calendula arvensis,Asteraceae,Calendula,56,,1,0
+hairy brackenfern,Pteridium aquilinum pubescens,Dennstaedtiaceae,Pteridium,53,,1,1
+douglas-fir,Pseudotsuga menziesii,Pinaceae,Pseudotsuga,52,,1,0
+american trailplant,Adenocaulon bicolor,Asteraceae,Adenocaulon,51,,1,0
+brittleleaf manzanita,Arctostaphylos crustacea,Ericaceae,Arctostaphylos,49,,0,0
+brittleleaf manzanita,Arctostaphylos crustacea crustacea,Ericaceae,Arctostaphylos,48,,0,0
+douglas iris,Iris douglasiana,Iridaceae,Iris,47,,1,1
+woodland madia,Anisocarpus madioides,Asteraceae,Anisocarpus,46,,1,0
+beaked hazelnut,Corylus cornuta,Betulaceae,Corylus,44,,1,0
+poison hemlock,Conium maculatum,Apiaceae,Conium,43,,0,1
