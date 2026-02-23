@@ -1,0 +1,1 @@
+This folder was for the initial test to make sure images could download, but is not filtered based on the final list of species we want to include. 
