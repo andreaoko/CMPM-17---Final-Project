@@ -1,0 +1,1 @@
+This folder is for the image downloading script after we narrowed down our species list
