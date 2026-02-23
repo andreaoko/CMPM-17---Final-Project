@@ -23,7 +23,7 @@ speciesLimTracker = speciesLimTracker.set_index('scientific_name') # This allows
 '''Downloading logic'''
 
 # [off] Only process a subset of the rows for testing (note that rows with other species not in speciesList will be skipped)
-# df = df.loc[:200, :]
+# df = df.loc[:20, :]
 
 directory = 'images_all/'
 total = 0
@@ -77,6 +77,6 @@ df_cleaned = df.dropna(subset=['img_path'])
 
 # Export with original data but also local file paths to images
 df.to_csv("UCSC_iNat_observations_downloaded.csv", index = False)
-df_cleaned.to_csv("UCSC_iNat_observations_downloads_only.csv")
+df_cleaned.to_csv("UCSC_iNat_observations_downloads_only.csv", index = False)
 
 print("done\n\n")
