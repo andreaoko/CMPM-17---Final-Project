@@ -15,6 +15,7 @@ existingDownloads = pd.read_csv('getImages2/UCSC_iNat_observations_downloads_onl
 familyList = pd.read_csv('getImages2/family_counts.csv')
 familyList = familyList.set_index('taxon_family_name')
 speciesList = pd.read_csv('getImages2/finalSpeciesTable.csv')
+speciesList = speciesList.set_index('scientific_name')
 
 familyMinimum = 100
 
@@ -32,9 +33,12 @@ for i, (idx, row) in enumerate(existingDownloads.iterrows()):
     
     family = row['taxon_family_name']
     familyTotal = familyList.loc[family, 'count'].item()
+    species = row['scientific_name']
+    speciesTotal = speciesList.loc[species, 'count'].item()
 
-    # Check that observed species part of a family with sufficient observations
-    if familyTotal > familyMinimum:
+    # Check that observed species part of a family with sufficient observations, and that species is greater than 10
+    # Arctostaphylos crustacea crustacea is skipped. There are only 2 images available, despite a higher value in the table.
+    if familyTotal > familyMinimum and speciesTotal >= 10 and species != 'Arctostaphylos crustacea crustacea':
         
         sciName = row['scientific_name']
         folderPath = directory + sciName
@@ -42,7 +46,7 @@ for i, (idx, row) in enumerate(existingDownloads.iterrows()):
         imageName = row['img_name']
 
         # Check if species folder exists and if not, make a new one
-        # Adapted from https://medium.com/@shahsanap89/different-ways-to-create-a-folder-in-python-38857d776d65
+        # 3 lines Adapted from https://medium.com/@shahsanap89/different-ways-to-create-a-folder-in-python-38857d776d65
         if not os.path.exists(folderPath):
             os.mkdir(folderPath)
             print(f"Folder '{folderPath}' created.")
