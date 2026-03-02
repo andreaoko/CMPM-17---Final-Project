@@ -14,19 +14,19 @@ import PIL.Image
 from io import BytesIO                                      #Helps open image
 import requests
 
-df = pd.read_csv("data/UCSC_iNat_observations_downloads_only.csv")                                                  #place the downloaded images into a pandas dataframe
+df = pd.read_csv("DownloadedImageData_NewPaths.csv")                                                  #place the downloaded images into a pandas dataframe
+df = df.dropna() # ensures rows with missing data are dropped
+df = df.sample(frac = 1) # mixes up the rows so we see a different summary each time
 
 num_images = 100
 
 plt.figure(figsize=(24,24))                                                                                         #window display size of images
 
 for i in range(num_images):
-    url = df.iloc[i]['image_url']                                                                                   #locate the image url; can be changed later to get the img_path which is much faster for computation
-    name = df.iloc[i]['common_name']                                                                                #locates common name of plant
-    sci_name = df.iloc[i]['scientific_name']                                                                        #locates scientific name of plant
+    pathNew = df.iloc[i]['img_path_new']    # Finds path in new file structure
+    name = df.iloc[i]['common_name']                                                                                #locates common name of plant                                                                      #locates scientific name of plant
 
-    result = requests.get(url, timeout=15)                                                                          #request the image data from the url
-    img = PIL.Image.open(BytesIO(result.content))                                                                   #opens the image
+    img = PIL.Image.open(pathNew)                                                                   #opens the image
 
     transforms = v2.Compose([
         v2.ToTensor(),                                                                                              #allows images to be placed into tensors                                                                     
@@ -38,7 +38,6 @@ for i in range(num_images):
 
     ])
 
-
     use_transforms = transforms(img)                                                                                #implement the transformations made
 
     plt.subplot(10, 10, i+1)
@@ -47,6 +46,8 @@ for i in range(num_images):
     plt.subplots_adjust(hspace=0.9, wspace=0.3)                                                                     #fixes spacing between images both horizontally and width
 
     plt.axis("off")
+
+    
 
 plt.tight_layout() # this line of code makes the layout/format nice with even spacing
 plt.show()
