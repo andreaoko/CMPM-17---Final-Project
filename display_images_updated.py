@@ -15,7 +15,7 @@ from io import BytesIO                                      #Helps open image
 import requests
 
 df = pd.read_csv("DownloadedImageData_NewPaths.csv")                                                  #place the downloaded images into a pandas dataframe
-df = df.dropna() # ensures rows with missing data are dropped
+df = df.dropna() # ensures rows with missing data are dropped. 
 df = df.sample(frac = 1) # mixes up the rows so we see a different summary each time
 
 num_images = 100
@@ -47,7 +47,7 @@ for i in range(num_images):
 
     plt.axis("off")
 
-    
+
 
 plt.tight_layout() # this line of code makes the layout/format nice with even spacing
 plt.show()
