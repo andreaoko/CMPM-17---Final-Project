@@ -35,7 +35,7 @@ for i in range(num_images):
         v2.RandomVerticalFlip(p=0.4),
         v2.RandomRotation(degrees=random.randint(1,50)),
         v2.ColorJitter(brightness=0.15,contrast=0.15),
-
+        v2.RandomResizedCrop(224, scale=(0.2,1.0))
     ])
 
     use_transforms = transforms(img)                                                                                #implement the transformations made
