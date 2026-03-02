@@ -19,6 +19,10 @@ speciesList = pd.read_csv('getImages2/finalSpeciesTable.csv')
 familyMinimum = 100
 
 directory = 'imagesOrganized/'
+if not os.path.exists(directory): # Make directory if it doesn't already exist
+            os.mkdir(directory)
+            print(f"Folder '{directory}' created.")
+
 
 # Keep track of which folders/files already exist
 imagesAlreadyRearranged = 0
@@ -59,6 +63,7 @@ for i, (idx, row) in enumerate(existingDownloads.iterrows()):
     if i > 10000: # Just in case the loop gets stuck somehow
         exit()
 
+existingDownloads = existingDownloads.dropna()
 existingDownloads.to_csv('DownloadedImageData_NewPaths.csv', index = False)
 
 print(f'{imagesAlreadyRearranged} images already saved in new locations')
@@ -70,6 +75,9 @@ import splitfolders
 
 inputFolder = 'imagesOrganized'
 outputFolder = 'imagesOrganizedSplit'
+if not os.path.exists(outputFolder):
+            os.mkdir(outputFolder)
+            print(f"Folder '{outputFolder}' created.")
 
 splitfolders.ratio(inputFolder, outputFolder, 
 						ratio=(.8, .1, .1))
