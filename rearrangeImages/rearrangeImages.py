@@ -41,7 +41,7 @@ for i, (idx, row) in enumerate(existingDownloads.iterrows()):
     if familyTotal > familyMinimum and speciesTotal >= 10 and species != 'Arctostaphylos crustacea crustacea':
         
         sciName = row['scientific_name']
-        folderPath = directory + sciName
+        folderPath = directory + family
         imagePathOriginal = 'getImages2/' + row['img_path'] # The original path didn't include the getImages2 folder
         imageName = row['img_name']
 
