@@ -40,12 +40,12 @@ for i, (idx, row) in enumerate(existingDownloads.iterrows()):
     # Arctostaphylos crustacea crustacea is skipped. There are only 2 images available, despite a higher value in the table.
     if familyTotal > familyMinimum and speciesTotal >= 10 and species != 'Arctostaphylos crustacea crustacea':
         
-        sciName = row['scientific_name']
+        sciName = row['scientific_name'] # Name/organize images based on families
         folderPath = directory + family
         imagePathOriginal = 'getImages2/' + row['img_path'] # The original path didn't include the getImages2 folder
         imageName = row['img_name']
 
-        # Check if species folder exists and if not, make a new one
+        # Check if folder exists and if not, make a new one
         # 3 lines Adapted from https://medium.com/@shahsanap89/different-ways-to-create-a-folder-in-python-38857d776d65
         if not os.path.exists(folderPath):
             os.mkdir(folderPath)
