@@ -13,7 +13,7 @@ import PIL.Image
 import os
 from torchvision.datasets import ImageFolder
 
-df = pd.read_csv("data/UCSC_iNat_observations_downloads_only.csv")                                                                                          #load data into dataframe
+df = pd.read_csv("DownloadedImageData_NewPaths.csv")                                                                                          #load data into dataframe
 
 
 #Augment and Show images
@@ -24,7 +24,7 @@ plt.figure(figsize=(20,20))                                                     
 
                                                                                                                                     #edited to pull from local files
 for i in range(num_images):
-    img_path = 'data/' + df.iloc[i]['img_path']                                                                                     #adds additional folder logic
+    img_path = df.iloc[i]['img_path_new']                                                                                     #adds additional folder logic
     name = df.iloc[i]['scientific_name']
 
     img = PIL.Image.open(img_path)                                                                                                  #opens from already downloaded files
