@@ -18,7 +18,7 @@ device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 print(device)
 
 
-df = pd.read_csv("getImages2/UCSC_iNat_observations_downloads_only.csv")                                                                                          #load data into dataframe
+df = pd.read_csv("getImages2/DownloadedImageData_NewPaths.csv")                                                                                          #load data into dataframe
 
 
 #Augment and Show images
@@ -124,14 +124,14 @@ class ConvNet(nn.Module):
 
 model = ConvNet().to(device)                                                                                  #create an instance of the model
 
-
+'''
 for images, label in train_dataloader:
     print(f'image shape: {images.shape}')                                                           #print dimensions of input image shape
     out = model(images)                                                                             #pass images through test model
     print(f'output shape: {out.shape}')                                                             #print the output tnesor of model shape
     print(out[0])                                                                                   #prints image shape for first image in batch
     break
- 
+'''
     
     
 
@@ -165,7 +165,7 @@ for epoch in range(NUM_EPOCHS):
         train_loss.backward()
         optimizer.step()
 
-    train_accuracy = torch.tensor(train_correct_vals / total)
+    train_accuracy = torch.tensor(train_correct_vals / total, device="cuda")
 
     print(f"Epoch: {epoch} || Loss: {train_loss.item()} || Trainining Accuracy: {train_accuracy}")
 
@@ -179,7 +179,7 @@ for epoch in range(NUM_EPOCHS):
         x, v_preds = torch.max(val_preds, dim=1)
         val_correct_vals += torch.sum((v_preds == labels)).item()
 
-    val_accuracy = torch.tensor(val_correct_vals / len(v_preds))
+    val_accuracy = torch.tensor(val_correct_vals / len(v_preds), device="cuda")
 
 
 
@@ -197,6 +197,6 @@ with torch.no_grad():
         x, tt_preds = torch.max(test_preds, dim=1)
         test_correct_vals += torch.sum((tt_preds == labels).item())
 
-    test_accuracy = torch.tensor(torch.sum(test_correct_vals) / len(tt_preds))
+    test_accuracy = torch.tensor(torch.sum(test_correct_vals) / len(tt_preds), device="cuda")
 
     print(f"Test Loss: {test_loss.item()} || Test Accuracy {test_accuracy}")
