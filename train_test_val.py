@@ -14,9 +14,11 @@ import PIL.Image
 import os
 from torchvision.datasets import ImageFolder
 
+device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+print(device)
 
 
-df = pd.read_csv("DownloadedImageData_NewPaths.csv")                                                                                          #load data into dataframe
+df = pd.read_csv("getImages2/UCSC_iNat_observations_downloads_only.csv")                                                                                          #load data into dataframe
 
 
 #Augment and Show images
@@ -27,7 +29,7 @@ plt.figure(figsize=(20,20))                                                     
 
                                                                                                                                     #edited to pull from local files
 for i in range(num_images):
-    img_path = df.iloc[i]['img_path_new']                                                                                     #adds additional folder logic
+    img_path = 'getImages2/' + df.iloc[i]['img_path']                                                                                     #adds additional folder logic
     name = df.iloc[i]['scientific_name']
 
     img = PIL.Image.open(img_path)                                                                                                  #opens from already downloaded files
@@ -120,7 +122,7 @@ class ConvNet(nn.Module):
         output = self.fc2(X)
         return output
 
-model = ConvNet()                                                                                   #create an instance of the model
+model = ConvNet().to(device)                                                                                  #create an instance of the model
 
 
 for images, label in train_dataloader:
@@ -145,24 +147,33 @@ for epoch in range(NUM_EPOCHS):
 
     train_correct_vals = 0
     val_correct_vals = 0
+    total = 0
 
     for images, labels in train_dataloader:
+        images = images.to(device)
+        labels = labels.to(device)
+
+
         train_preds = model(images)
         train_loss = criterion(train_preds, labels)
 
         x, t_preds = torch.max(train_preds, dim=1)                                                    #finds the highest prediction from the training predictions
         train_correct_vals += torch.sum((t_preds == labels)).item()
+        total += labels.size(0)
 
         optimizer.zero_grad()
         train_loss.backward()
         optimizer.step()
 
-    train_accuracy = torch.tensor(train_correct_vals / len(t_preds))
+    train_accuracy = torch.tensor(train_correct_vals / total)
 
     print(f"Epoch: {epoch} || Loss: {train_loss.item()} || Trainining Accuracy: {train_accuracy}")
 
 
     for images, labels in val_dataloader:
+        images = images.to(device)
+        labels = labels.to(device)
+
         val_preds = model(images)
         val_loss = criterion(val_preds, labels)
         x, v_preds = torch.max(val_preds, dim=1)
@@ -177,13 +188,15 @@ with torch.no_grad():
     test_correct_vals = 0
 
     for images, labels in test_dataloader:
+        images = images.to(device)
+        labels = labels.to(device)
+
         test_preds = model(images)
         test_loss = criterion(test_preds, labels)
+
         x, tt_preds = torch.max(test_preds, dim=1)
         test_correct_vals += torch.sum((tt_preds == labels).item())
 
     test_accuracy = torch.tensor(torch.sum(test_correct_vals) / len(tt_preds))
 
     print(f"Test Loss: {test_loss.item()} || Test Accuracy {test_accuracy}")
-
-
