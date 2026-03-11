@@ -14,7 +14,7 @@ import PIL.Image
 import os
 from torchvision.datasets import ImageFolder
 
-df = pd.read_csv("getImages2/DownloadedImageData_NewPaths.csv")                                                                                                 #load data into dataframe
+df = pd.read_csv("DownloadedImageData_NewPaths.csv")                                                                                                 #load data into dataframe
 
 #Checking for device automatically
 
