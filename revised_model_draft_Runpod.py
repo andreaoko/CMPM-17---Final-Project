@@ -26,12 +26,6 @@ else:
 
 
 
-
-
-
-
-
-
 #Augment and Show images
 
 num_images = 100
@@ -137,7 +131,7 @@ model = ConvNet()
 
 #Check output of the model
 for images, label in train_dataloader:
-    print(f'\nImage shape: {images.shape}')                                                                 #print dimensions of input image shape
+    print(f'\nImage shape: {images.shape}')                                                                     #print dimensions of input image shape
     output_model = model(images)                                                                          
     print(f'Output shape: {output_model.shape}')                                                                #print the output tensor of model shape
     print(output_model[0])                                                                                      #prints image shape for first image in batch
@@ -166,6 +160,7 @@ for epoch in range(NUM_EPOCHS):
     v_total_imgs = 0
 
     for images, labels in train_dataloader:
+        
         images = images.to(device)
         labels = labels.to(device)
 
@@ -202,8 +197,6 @@ for epoch in range(NUM_EPOCHS):
                 
         v_correct_vals += torch.sum((v_preds == labels)).item()                                                       #check the correct values
         v_total_imgs += labels.size(0)        
-
-
 
 
 
