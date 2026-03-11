@@ -181,9 +181,10 @@ for epoch in range(NUM_EPOCHS):
     train_accuracy = train_correct_vals / train_total_imgs
     avg_train_loss = train_total_loss / len(train_dataloader)
 
-    print(f"Epoch: {epoch+1}/{NUM_EPOCHS} || Training Loss: {train_loss.item()} || Avg Training Loss: {avg_train_loss} || Training Accuracy: {train_accuracy:.6f}")
+    print(f"Epoch: {epoch+1}/{NUM_EPOCHS} || Training Loss: {train_loss.item()} || Avg Training Loss: {avg_train_loss:.6f} || Training Accuracy: {train_accuracy:.6f}")
 
     model.eval()
+    
 #Validation loop
     for images, labels in val_dataloader:
 
@@ -197,8 +198,6 @@ for epoch in range(NUM_EPOCHS):
                 
         v_correct_vals += torch.sum((v_preds == labels)).item()                                                       #check the correct values
         v_total_imgs += labels.size(0)        
-
-
 
 
 print("\n Testing Phase")
