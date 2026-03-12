@@ -150,7 +150,7 @@ for images, label in train_dataloader:
 optimizer = torch.optim.Adam(model.parameters(), lr=0.001)                                                               
 criterion = nn.CrossEntropyLoss().to(device)  
 
-NUM_EPOCHS = 1
+NUM_EPOCHS = 10
 
 training_loop_time = time.time()
 
