@@ -81,9 +81,9 @@ test_dataset = ImageFolder(os.path.join(root,'test'), transform=transforms)     
 val_dataset = ImageFolder(os.path.join(root,'val'), transform=transforms)
                                                                                                     
                                                                                                                 #Create dataloaders
-train_dataloader = DataLoader(train_dataset, batch_size=16, pin_memory=True, shuffle=True)
-test_dataloader = DataLoader(test_dataset, batch_size=8, pin_memory=True, shuffle=True)
-val_dataloader = DataLoader(val_dataset, batch_size=8, pin_memory=True, shuffle=True)
+train_dataloader = DataLoader(train_dataset, batch_size=64, pin_memory=True, shuffle=True)
+test_dataloader = DataLoader(test_dataset, batch_size=16, pin_memory=True, shuffle=True)
+val_dataloader = DataLoader(val_dataset, batch_size=16, pin_memory=True, shuffle=True)
 
                                                                                                                 #Check dataloader outputs 
 for images, labels in train_dataloader:
@@ -168,6 +168,8 @@ for epoch in range(NUM_EPOCHS):
     v_total_imgs = 0
 
     for images, labels in train_dataloader:
+        images, labels = images.to(device), labels.to(device)
+
 
         train_preds = model(images)
         train_loss = criterion(train_preds, labels)
@@ -194,6 +196,7 @@ for epoch in range(NUM_EPOCHS):
 #Validation loop
 with torch.no_grad():
     for images, labels in val_dataloader:
+        images, labels = images.to(device), labels.to(device)
 
         val_preds = model(images)
         val_loss = criterion(val_preds, labels)
@@ -211,6 +214,7 @@ with torch.no_grad():
     test_total_imgs = 0
 
     for images, labels in test_dataloader:
+        images, labels = images.to(device), labels.to(device)
 
         test_preds = model(images)
         test_loss = criterion(test_preds, labels)
