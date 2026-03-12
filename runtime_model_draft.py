@@ -16,7 +16,7 @@ from torchvision.datasets import ImageFolder
 import time
 
 
-df = pd.read_csv("getImages2/DownloadedImageData_NewPaths.csv")                                                                                                 #load data into dataframe
+df = pd.read_csv("DownloadedImageData_NewPaths.csv")                                                                                                 #load data into dataframe
 
 #Checking for device automatically
 
@@ -131,7 +131,7 @@ class ConvNet(nn.Module):
         return output
 
 model = ConvNet()   
-model.to(device) 
+
 
 
 #Check output of the model
@@ -142,7 +142,7 @@ for images, label in train_dataloader:
     print(output_model[0])                                                                                      #prints image shape for first image in batch
     break
 
-
+model.to(device) 
 
 
 #Training, Validation and Testing Loop
