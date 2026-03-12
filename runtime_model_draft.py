@@ -60,7 +60,7 @@ for i in range(num_images):
     plt.axis("off")
 
 plt.tight_layout(pad=2, h_pad=2.5, w_pad=0.2)
-#Use plt.show(block=False) for debugging purposes
+#Use plt.show(block=False) for debugging purposes; this will prevent the graph from popping up
 plt.show(block=False)                                                                                          
 
 
