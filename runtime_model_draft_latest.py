@@ -240,6 +240,4 @@ with torch.no_grad():
 
 print(f"Total time: {((time.time() - training_loop_time)/60):.2f}")
 
-torch.save(model.state_dict(), 'save/to/path/CMPM17_FINAL_SAVE.pth')
-
-torch.save(model.state_dict(), "CMPM17_final_save.pt")
+torch.save(model.state_dict(), "final_save.pt")
