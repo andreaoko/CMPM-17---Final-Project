@@ -160,7 +160,6 @@ optimizer = torch.optim.Adam(model.parameters(), lr=0.001)
 criterion = nn.CrossEntropyLoss().to(device)  
 
 NUM_EPOCHS = 3
-NUM_EPOCHS = 1
 
 training_loop_time = time.time()                    #Calculate the time at the beginning of the training loop
 
