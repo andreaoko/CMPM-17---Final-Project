@@ -187,7 +187,7 @@ for epoch in range(NUM_EPOCHS):
     avg_train_loss = train_total_loss / len(train_dataloader)
     epoch_time = time.time() - epoch_start_time
 
-    print(f"\nEpoch: {epoch+1}/{NUM_EPOCHS} || Training Loss: {train_loss.item():.6f} || Avg Training Loss: {avg_train_loss:.6f}||" 
+    print(f"Epoch: {epoch+1}/{NUM_EPOCHS} || Training Loss: {train_loss.item():.6f} || Avg Training Loss: {avg_train_loss:.6f}||" 
           f" Training Accuracy: {train_accuracy:.6f} || Runtime: {(epoch_time/60):.2f} mins")
     model.eval()
 
@@ -205,7 +205,7 @@ with torch.no_grad():
         v_total_imgs += labels.size(0)        
 
 
-print("\n Testing Phase")
+print("\nTesting Phase")
 
 with torch.no_grad():
     test_correct_vals = 0
