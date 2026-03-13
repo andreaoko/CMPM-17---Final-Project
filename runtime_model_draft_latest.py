@@ -26,8 +26,6 @@ if torch.cuda.is_available():
 else:
     device = "cpu"
 
-print("hello")
-
 
 
 #Augment and Show images
@@ -199,17 +197,17 @@ for epoch in range(NUM_EPOCHS):
     model.eval()
 
 #Validation loop
-with torch.no_grad():
-    for images, labels in val_dataloader:
-        images, labels = images.to(device), labels.to(device)
+    with torch.no_grad():
+        for images, labels in val_dataloader:
+            images, labels = images.to(device), labels.to(device)
 
-        val_preds = model(images)
-        val_loss = criterion(val_preds, labels)
+            val_preds = model(images)
+            val_loss = criterion(val_preds, labels)
 
-        __, v_preds = torch.max(val_preds, dim=1)
-                
-        v_correct_vals += torch.sum((v_preds == labels)).item()                                                    
-        v_total_imgs += labels.size(0)        
+            __, v_preds = torch.max(val_preds, dim=1)
+                    
+            v_correct_vals += torch.sum((v_preds == labels)).item()                                                    
+            v_total_imgs += labels.size(0)        
 
 
 print("\nTesting Phase")
