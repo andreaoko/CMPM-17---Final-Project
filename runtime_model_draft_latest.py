@@ -18,8 +18,8 @@ import time
 
 df = pd.read_csv("DownloadedImageData_NewPaths.csv")                                                                                                 #load data into dataframe
 
-#Checking for device automatically
 
+#Checking for device automatically
 if torch.cuda.is_available():
     device = "cuda"
     print("CUDA is available. Using GPU.")
@@ -29,14 +29,13 @@ else:
 
 
 #Augment and Show images
-
 num_images = 100
 plt.figure(figsize=(20,20))                                                                                                         #window display size of images
           
 img_augment = v2.Compose([
-        v2.ToImage(),                                                                                                               #converts to a torch tensor image object
-        v2.ToDtype(torch.float32, scale=True),                                                 
-        v2.Resize((224,224)),
+        v2.ToImage(),                                  #converts to a torch tensor image object
+        v2.ToDtype(torch.float32, scale=True),                                                  
+        v2.Resize((224,224)),                          #resizes the image to 224 x 224
         v2.RandomHorizontalFlip(p=0.3),
         v2.RandomVerticalFlip(p=0.4),
         v2.ColorJitter(brightness=0.15,contrast=0.15),
@@ -60,12 +59,11 @@ for i in range(num_images):
     plt.axis("off")
 
 plt.tight_layout(pad=2, h_pad=2.5, w_pad=0.2)
-#Use plt.show(block=False) for debugging purposes; this will prevent the graph from popping up
-plt.show(block=False)                                                                                          
+plt.show(block=False)            #Use plt.show(block=False) for debugging purposes; this will prevent the graph from popping up                                                                  
 
 
 
-transforms = v2.Compose([                                                                                       #Transforms for testing/validation                                                           
+transforms = v2.Compose([        #Transforms for testing/validation                                                           
         v2.ToImage(),                                                                                           
         v2.ToDtype(torch.float32, scale=True),                                                 
         v2.Resize((224,224)),
@@ -75,20 +73,20 @@ transforms = v2.Compose([                                                       
 #Define datasets and dataloaders
 
 root = 'imagesOrganizedSplit'
-                                                                                                                #Create Imagefolders
-train_dataset = ImageFolder(os.path.join(root,'train'), transform=img_augment)                                  #Creates a path to the respective folder
-test_dataset = ImageFolder(os.path.join(root,'test'), transform=transforms)                                     #Only test/val use normal transforms and training uses image augmentations
+#Create Imagefolders
+train_dataset = ImageFolder(os.path.join(root,'train'), transform=img_augment)          #Creates a path to the respective folder
+test_dataset = ImageFolder(os.path.join(root,'test'), transform=transforms)             #Only test/val use normal transforms and training uses image augmentations
 val_dataset = ImageFolder(os.path.join(root,'val'), transform=transforms)
                                                                                                     
-                                                                                                                #Create dataloaders
-train_dataloader = DataLoader(train_dataset, batch_size=64, pin_memory=True, num_workers=16, shuffle=True)
-test_dataloader = DataLoader(test_dataset, batch_size=16, pin_memory=True, num_workers=16, shuffle=True)
-val_dataloader = DataLoader(val_dataset, batch_size=16, pin_memory=True, num_workers=16, shuffle=True)
-
-                                                                                                                #Check dataloader outputs 
+#Create dataloaders
+train_dataloader = DataLoader(train_dataset, batch_size=64, shuffle=True)
+test_dataloader = DataLoader(test_dataset, batch_size=16, shuffle=True)
+val_dataloader = DataLoader(val_dataset, batch_size=16,shuffle=True)
+ 
+#Check dataloader outputs 
 for images, labels in train_dataloader:
-    print(f"\nTrain inputs: {images.size()}")                                                                   #Input order: ([batch size, channels, img height, img width])
-    print(f"Train outputs: {labels.size()}")                                                                    #Output order: ([batch size])
+    print(f"\nTrain inputs: {images.size()}")       #Input order: ([batch size, channels, img height, img width])
+    print(f"Train outputs: {labels.size()}")        #Output order: ([batch size])
     break
 
 for images, labels in test_dataloader:
@@ -102,8 +100,8 @@ for images, labels in val_dataloader:
     break
 
 
-#Define the CNN model class
 
+#Define the CNN model class
 class ConvNet(nn.Module):
     def __init__(self):
         super().__init__()
@@ -124,7 +122,7 @@ class ConvNet(nn.Module):
         self.relu = nn.ReLU()
         self.flatten = nn.Flatten()
 
-    def forward(self, X):
+    def forward(self, X):                                   #pass convolutions through pooling layers, relu activation and batch norms
         X = self.pool(self.bN1(self.relu(self.conv1(X))))
         X = self.pool(self.bN2(self.relu(self.conv2(X))))
         X = self.pool(self.bN3(self.relu(self.conv3(X))))
@@ -139,10 +137,10 @@ model = ConvNet()
 
 #Check output of the model
 for images, label in train_dataloader:
-    print(f'\nImage shape: {images.shape}')                                                                     #print dimensions of input image shape
+    print(f'\nImage shape: {images.shape}')                  #print dimensions of input image shape
     output_model = model(images)                                                                             
-    print(f'Output shape: {output_model.shape}')                                                                #print the output tensor of model shape
-    print(output_model[0])                                                                                      #prints image shape for first image in batch
+    print(f'Output shape: {output_model.shape}')             #print the output tensor of model shape
+    print(output_model[0])                                   #prints image shape for first image in batch
     break
 
 model.to(device) 
@@ -153,13 +151,13 @@ model.to(device)
 optimizer = torch.optim.Adam(model.parameters(), lr=0.001)                                                               
 criterion = nn.CrossEntropyLoss().to(device)  
 
-NUM_EPOCHS = 30
+NUM_EPOCHS = 1
 
-training_loop_time = time.time()
+training_loop_time = time.time()                    #Calculate the time at the beginning of the training loop
 
 #Training Loop
 for epoch in range(NUM_EPOCHS):
-    epoch_start_time = time.time()
+    epoch_start_time = time.time()                  #Calculate time at the beginning of each epoch
     model.train()
 
     train_correct_vals = 0
@@ -232,3 +230,5 @@ with torch.no_grad():
     print(f"Test Loss: {test_loss.item()} || Testing Accuracy: {test_accuracy:.6f}")
 
 print(f"Total time: {((time.time() - training_loop_time)/60):.2f}")
+
+torch.save(model.state_dict(), "CMPM17_final_save.pt")
