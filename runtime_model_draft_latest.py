@@ -59,6 +59,8 @@ for i in range(num_images):
     plt.axis("off")
 
 plt.tight_layout(pad=2, h_pad=2.5, w_pad=0.2)
+#Use plt.show(block=False) for debugging purposes; this will prevent the graph from popping up
+plt.savefig('Transforms')                                                                                          
 plt.show(block=False)            #Use plt.show(block=False) for debugging purposes; this will prevent the graph from popping up                                                                  
 
 
@@ -78,6 +80,12 @@ train_dataset = ImageFolder(os.path.join(root,'train'), transform=img_augment)  
 test_dataset = ImageFolder(os.path.join(root,'test'), transform=transforms)             #Only test/val use normal transforms and training uses image augmentations
 val_dataset = ImageFolder(os.path.join(root,'val'), transform=transforms)
                                                                                                     
+                                                                                                                #Create dataloaders
+train_dataloader = DataLoader(train_dataset, batch_size=64, pin_memory=True, num_workers=16, shuffle=True)      #
+test_dataloader = DataLoader(test_dataset, batch_size=16, pin_memory=True, num_workers=16, shuffle=True)
+val_dataloader = DataLoader(val_dataset, batch_size=16, pin_memory=True, num_workers=16, shuffle=True)
+
+                                                                                                                #Check dataloader outputs 
 #Create dataloaders
 train_dataloader = DataLoader(train_dataset, batch_size=64, shuffle=True)
 test_dataloader = DataLoader(test_dataset, batch_size=16, shuffle=True)
@@ -151,6 +159,7 @@ model.to(device)
 optimizer = torch.optim.Adam(model.parameters(), lr=0.001)                                                               
 criterion = nn.CrossEntropyLoss().to(device)  
 
+NUM_EPOCHS = 3
 NUM_EPOCHS = 1
 
 training_loop_time = time.time()                    #Calculate the time at the beginning of the training loop
@@ -195,17 +204,17 @@ for epoch in range(NUM_EPOCHS):
     model.eval()
 
 #Validation loop
-with torch.no_grad():
-    for images, labels in val_dataloader:
-        images, labels = images.to(device), labels.to(device)
+    with torch.no_grad():
+        for images, labels in val_dataloader:
+            images, labels = images.to(device), labels.to(device)
 
-        val_preds = model(images)
-        val_loss = criterion(val_preds, labels)
+            val_preds = model(images)
+            val_loss = criterion(val_preds, labels)
 
-        __, v_preds = torch.max(val_preds, dim=1)
-                
-        v_correct_vals += torch.sum((v_preds == labels)).item()                                                    
-        v_total_imgs += labels.size(0)        
+            __, v_preds = torch.max(val_preds, dim=1)
+                    
+            v_correct_vals += torch.sum((v_preds == labels)).item()                                                    
+            v_total_imgs += labels.size(0)        
 
 
 print("\nTesting Phase")
@@ -230,5 +239,7 @@ with torch.no_grad():
     print(f"Test Loss: {test_loss.item()} || Testing Accuracy: {test_accuracy:.6f}")
 
 print(f"Total time: {((time.time() - training_loop_time)/60):.2f}")
+
+torch.save(model.state_dict(), 'save/to/path/CMPM17_FINAL_SAVE.pth')
 
 torch.save(model.state_dict(), "CMPM17_final_save.pt")
