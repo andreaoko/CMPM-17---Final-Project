@@ -148,7 +148,7 @@ model.to(device)
 optimizer = torch.optim.Adam(model.parameters(), lr=0.001)                                                               
 criterion = nn.CrossEntropyLoss().to(device)  
 
-NUM_EPOCHS = 10
+NUM_EPOCHS = 30
 
 training_loop_time = time.time()
 
@@ -187,7 +187,7 @@ for epoch in range(NUM_EPOCHS):
     avg_train_loss = train_total_loss / len(train_dataloader)
     epoch_time = time.time() - epoch_start_time
 
-    print(f"Epoch: {epoch+1}/{NUM_EPOCHS} || Training Loss: {train_loss.item():.6f} || Avg Training Loss: {avg_train_loss:.6f}||" 
+    print(f"Epoch: {epoch+1}/{NUM_EPOCHS} || Training Loss: {train_loss.item():.6f} || Avg Training Loss: {avg_train_loss:.6f} ||" 
           f" Training Accuracy: {train_accuracy:.6f} || Runtime: {(epoch_time/60):.2f} mins")
     model.eval()
 
