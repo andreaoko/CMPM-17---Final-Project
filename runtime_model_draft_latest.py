@@ -26,6 +26,8 @@ if torch.cuda.is_available():
 else:
     device = "cpu"
 
+print("hello")
+
 
 
 #Augment and Show images
