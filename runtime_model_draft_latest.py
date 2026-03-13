@@ -81,9 +81,9 @@ test_dataset = ImageFolder(os.path.join(root,'test'), transform=transforms)     
 val_dataset = ImageFolder(os.path.join(root,'val'), transform=transforms)
                                                                                                     
                                                                                                                 #Create dataloaders
-train_dataloader = DataLoader(train_dataset, batch_size=64, pin_memory=True, num_workers = 16, shuffle=True)
-test_dataloader = DataLoader(test_dataset, batch_size=16, pin_memory=True, num_workers = 16, shuffle=True)
-val_dataloader = DataLoader(val_dataset, batch_size=16, pin_memory=True, num_workers = 16, shuffle=True)
+train_dataloader = DataLoader(train_dataset, batch_size=64, pin_memory=True, num_workers=16, shuffle=True)
+test_dataloader = DataLoader(test_dataset, batch_size=16, pin_memory=True, num_workers=16, shuffle=True)
+val_dataloader = DataLoader(val_dataset, batch_size=16, pin_memory=True, num_workers=16, shuffle=True)
 
                                                                                                                 #Check dataloader outputs 
 for images, labels in train_dataloader:
@@ -108,10 +108,15 @@ class ConvNet(nn.Module):
     def __init__(self):
         super().__init__()
         self.conv1 = nn.Conv2d(3, 32, 3, 1 ,1)
+        self.bN1 = nn.BatchNorm2d(32)
         self.conv2 = nn.Conv2d(32, 64, 3, 1, 1)
+        self.bN2 = nn.BatchNorm2d(64)
         self.conv3 = nn.Conv2d(64, 128, 3, 1, 1)
+        self.bN3 = nn.BatchNorm2d(128)
         self.conv4 = nn.Conv2d(128, 256, 3, 1, 1)
+        self.bN4 = nn.BatchNorm2d(256)
         self.conv5 = nn.Conv2d(256, 512, 3, 1, 1)
+        self.bN5 = nn.BatchNorm2d(512)
 
         self.pool = nn.MaxPool2d(2,2)
         self.fc1 = nn.Linear(7*7*512, 500)
@@ -120,11 +125,11 @@ class ConvNet(nn.Module):
         self.flatten = nn.Flatten()
 
     def forward(self, X):
-        X = self.pool(self.relu(self.conv1(X)))
-        X = self.pool(self.relu(self.conv2(X)))
-        X = self.pool(self.relu(self.conv3(X)))
-        X = self.pool(self.relu(self.conv4(X)))
-        X = self.pool(self.relu(self.conv5(X)))
+        X = self.pool(self.bN1(self.relu(self.conv1(X))))
+        X = self.pool(self.bN2(self.relu(self.conv2(X))))
+        X = self.pool(self.bN3(self.relu(self.conv3(X))))
+        X = self.pool(self.bN4(self.relu(self.conv4(X))))
+        X = self.pool(self.bN5(self.relu(self.conv5(X))))
         X = X.flatten(start_dim=1)
         X = self.relu(self.fc1(X))
         output = self.fc2(X)
