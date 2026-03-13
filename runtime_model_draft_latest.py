@@ -61,7 +61,7 @@ for i in range(num_images):
 
 plt.tight_layout(pad=2, h_pad=2.5, w_pad=0.2)
 #Use plt.show(block=False) for debugging purposes; this will prevent the graph from popping up
-plt.show(block=False)                                                                                          
+plt.savefig('Transforms')                                                                                          
 
 
 
@@ -81,7 +81,7 @@ test_dataset = ImageFolder(os.path.join(root,'test'), transform=transforms)     
 val_dataset = ImageFolder(os.path.join(root,'val'), transform=transforms)
                                                                                                     
                                                                                                                 #Create dataloaders
-train_dataloader = DataLoader(train_dataset, batch_size=64, pin_memory=True, num_workers=16, shuffle=True)
+train_dataloader = DataLoader(train_dataset, batch_size=64, pin_memory=True, num_workers=16, shuffle=True)      #
 test_dataloader = DataLoader(test_dataset, batch_size=16, pin_memory=True, num_workers=16, shuffle=True)
 val_dataloader = DataLoader(val_dataset, batch_size=16, pin_memory=True, num_workers=16, shuffle=True)
 
@@ -153,7 +153,7 @@ model.to(device)
 optimizer = torch.optim.Adam(model.parameters(), lr=0.001)                                                               
 criterion = nn.CrossEntropyLoss().to(device)  
 
-NUM_EPOCHS = 30
+NUM_EPOCHS = 3
 
 training_loop_time = time.time()
 
@@ -232,3 +232,5 @@ with torch.no_grad():
     print(f"Test Loss: {test_loss.item()} || Testing Accuracy: {test_accuracy:.6f}")
 
 print(f"Total time: {((time.time() - training_loop_time)/60):.2f}")
+
+torch.save(model.state_dict(), 'save/to/path/CMPM17_FINAL_SAVE.pth')
