@@ -142,7 +142,7 @@ for images, label in train_dataloader:
     print(f'\nImage shape: {images.shape}')                                                                     #print dimensions of input image shape
     output_model = model(images)                                                                             
     print(f'Output shape: {output_model.shape}')                                                                #print the output tensor of model shape
-    print(output_model[0])                                                                                      #prints image shape for first image in batch
+    # print(output_model[0])                                                                                      #prints image shape for first image in batch
     break
 
 model.to(device) 
@@ -221,8 +221,10 @@ with torch.no_grad():
 
         test_preds = model(images)
         test_loss = criterion(test_preds, labels)
+        print("labels", labels)
 
         __, tt_preds = torch.max(test_preds, dim=1)
+        print("preds", tt_preds)
 
         test_correct_vals += torch.sum((tt_preds == labels)).item()
         test_total_imgs += labels.size(0)
@@ -233,4 +235,4 @@ with torch.no_grad():
 
 print(f"Total time: {((time.time() - training_loop_time)/60):.2f}")
 
-torch.save(model.state_dict(), 'save/to/path/CMPM17_FINAL_SAVE.pth')
+# torch.save(model.state_dict(), 'save/to/path/CMPM17_FINAL_SAVE.pth')
