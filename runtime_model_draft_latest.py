@@ -15,6 +15,8 @@ import os
 from torchvision.datasets import ImageFolder
 import time
 
+# Set epochs
+NUM_EPOCHS = 3
 
 df = pd.read_csv("DownloadedImageData_NewPaths.csv")                                                                                                 #load data into dataframe
 
@@ -85,12 +87,7 @@ train_dataloader = DataLoader(train_dataset, batch_size=64, pin_memory=True, num
 test_dataloader = DataLoader(test_dataset, batch_size=16, pin_memory=True, num_workers=16, shuffle=True)
 val_dataloader = DataLoader(val_dataset, batch_size=16, pin_memory=True, num_workers=16, shuffle=True)
 
-                                                                                                                #Check dataloader outputs 
-#Create dataloaders
-train_dataloader = DataLoader(train_dataset, batch_size=64, shuffle=True)
-test_dataloader = DataLoader(test_dataset, batch_size=16, shuffle=True)
-val_dataloader = DataLoader(val_dataset, batch_size=16,shuffle=True)
- 
+                                                                                                                #Check dataloader outputs  
 #Check dataloader outputs 
 for images, labels in train_dataloader:
     print(f"\nTrain inputs: {images.size()}")       #Input order: ([batch size, channels, img height, img width])
@@ -159,8 +156,6 @@ model.to(device)
 optimizer = torch.optim.Adam(model.parameters(), lr=0.001)                                                               
 criterion = nn.CrossEntropyLoss().to(device)  
 
-NUM_EPOCHS = 3
-
 training_loop_time = time.time()                    #Calculate the time at the beginning of the training loop
 
 #Training Loop
@@ -227,10 +222,10 @@ with torch.no_grad():
 
         test_preds = model(images)
         test_loss = criterion(test_preds, labels)
-        print("labels", labels)
+        # print("labels", labels)
 
         __, tt_preds = torch.max(test_preds, dim=1)
-        print("preds", tt_preds)
+        # print("preds", tt_preds)
 
         test_correct_vals += torch.sum((tt_preds == labels)).item()
         test_total_imgs += labels.size(0)
