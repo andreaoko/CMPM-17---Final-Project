@@ -1,0 +1,27 @@
+/Library/Frameworks/Python.framework/Versions/3.14/lib/python3.14/site-packages/torch/utils/data/dataloader.py:775: UserWarning: 'pin_memory' argument is set as true but not supported on MPS now, device pinned memory won't be used.
+  super().__init__(loader)
+
+Train inputs: torch.Size([64, 3, 224, 224])
+Train outputs: torch.Size([64])
+
+Test inputs: torch.Size([2, 3, 224, 224])
+Test outputs: torch.Size([2])
+
+Validation inputs: torch.Size([16, 3, 224, 224])
+Validation outputs: torch.Size([16])
+
+Image shape: torch.Size([64, 3, 224, 224])
+Output shape: torch.Size([64, 25])
+tensor([ 0.1267,  0.2828, -0.2438,  0.3954, -0.1823,  0.1661,  0.2790, -0.2865,
+        -0.3860, -0.1478,  0.2296, -0.4715, -0.2342,  0.5028,  0.4265,  0.2378,
+        -0.2611,  0.4028,  0.2220, -0.0631, -0.0009, -0.5222,  0.0874,  0.0433,
+         0.1221], grad_fn=<SelectBackward0>)
+Epoch: 1/5 || Training Loss: 0.000000 || Avg Training Loss: 0.609588 || Training Accuracy: 0.813411 || Runtime: 0.28 mins
+Epoch: 2/5 || Training Loss: 0.000000 || Avg Training Loss: 0.000000 || Training Accuracy: 1.000000 || Runtime: 10.56 mins
+Epoch: 3/5 || Training Loss: 0.000000 || Avg Training Loss: 0.000000 || Training Accuracy: 1.000000 || Runtime: 1.52 mins
+Epoch: 4/5 || Training Loss: 0.121744 || Avg Training Loss: 0.020291 || Training Accuracy: 0.997085 || Runtime: 3.89 mins
+Epoch: 5/5 || Training Loss: 2.211838 || Avg Training Loss: 1.498196 || Training Accuracy: 0.970845 || Runtime: 0.33 mins
+
+Testing Phase
+Test Loss: 0.0 || Testing Accuracy: 1.000000
+Total time: 16.64

@@ -14,10 +14,13 @@ import PIL.Image
 import os
 from torchvision.datasets import ImageFolder
 import time
+import wandb
+
 
 
 df = pd.read_csv("DownloadedImageData_NewPaths.csv")                                                                                                 #load data into dataframe
 
+run = wandb.init(project="example-test", name="my-run")
 
 #Checking for device automatically
 if torch.cuda.is_available():
@@ -76,20 +79,16 @@ transforms = v2.Compose([        #Transforms for testing/validation
 
 root = 'imagesOrganizedSplit'
 #Create Imagefolders
-train_dataset = ImageFolder(os.path.join(root,'train'), transform=img_augment)          #Creates a path to the respective folder
-test_dataset = ImageFolder(os.path.join(root,'test'), transform=transforms)             #Only test/val use normal transforms and training uses image augmentations
+train_dataset = ImageFolder(os.path.join(root,'train'), transform=img_augment)       #Creates a path to the respective folder
+test_dataset = ImageFolder(os.path.join(root,'test'), transform=transforms)          #Only test/val use normal transforms and training uses image augmentations
 val_dataset = ImageFolder(os.path.join(root,'val'), transform=transforms)
                                                                                                     
-                                                                                                                #Create dataloaders
-train_dataloader = DataLoader(train_dataset, batch_size=64, pin_memory=True, num_workers=16, shuffle=True)      #
-test_dataloader = DataLoader(test_dataset, batch_size=16, pin_memory=True, num_workers=16, shuffle=True)
-val_dataloader = DataLoader(val_dataset, batch_size=16, pin_memory=True, num_workers=16, shuffle=True)
+ #Create dataloaders
+train_dataloader = DataLoader(train_dataset, batch_size=64, pin_memory=True, shuffle=True)  #Use pin_memory=True & num_workers=16 for helping speed up GPU processes    
+test_dataloader = DataLoader(test_dataset, batch_size=16, pin_memory=True, shuffle=True)    #Exclude pin_memory=True & num_workers=16 when running on local device
+val_dataloader = DataLoader(val_dataset, batch_size=16, pin_memory=True, shuffle=True)
 
                                                                                                                 #Check dataloader outputs 
-#Create dataloaders
-train_dataloader = DataLoader(train_dataset, batch_size=64, shuffle=True)
-test_dataloader = DataLoader(test_dataset, batch_size=16, shuffle=True)
-val_dataloader = DataLoader(val_dataset, batch_size=16,shuffle=True)
  
 #Check dataloader outputs 
 for images, labels in train_dataloader:
@@ -126,7 +125,7 @@ class ConvNet(nn.Module):
 
         self.pool = nn.MaxPool2d(2,2)
         self.fc1 = nn.Linear(7*7*512, 500)
-        self.fc2 = nn.Linear(500, 26)
+        self.fc2 = nn.Linear(500, 25)
         self.relu = nn.ReLU()
         self.flatten = nn.Flatten()
 
@@ -159,8 +158,8 @@ model.to(device)
 optimizer = torch.optim.Adam(model.parameters(), lr=0.001)                                                               
 criterion = nn.CrossEntropyLoss().to(device)  
 
-NUM_EPOCHS = 3
-NUM_EPOCHS = 1
+NUM_EPOCHS = 5
+
 
 training_loop_time = time.time()                    #Calculate the time at the beginning of the training loop
 
@@ -240,4 +239,5 @@ with torch.no_grad():
 
 print(f"Total time: {((time.time() - training_loop_time)/60):.2f}")
 
+run.log({"train loss": train_loss, "test loss": test_loss})
 torch.save(model.state_dict(), "final_save.pt")
