@@ -16,6 +16,8 @@ from torchvision.datasets import ImageFolder
 import time
 import wandb
 
+# Set epochs
+NUM_EPOCHS = 3
 
 df = pd.read_csv("DownloadedImageData_NewPaths.csv")             #load data into dataframe
 
@@ -146,8 +148,8 @@ model = ConvNet()
 for images, label in train_dataloader:
     print(f'\nImage shape: {images.shape}')                  #print dimensions of input image shape
     output_model = model(images)                                                                             
-    print(f'Output shape: {output_model.shape}')             #print the output tensor of model shape
-    print(output_model[0])                                   #prints image shape for first image in batch
+    print(f'Output shape: {output_model.shape}')                                                                #print the output tensor of model shape
+    # print(output_model[0])                                                                                      #prints image shape for first image in batch
     break
 
 model.to(device) 
@@ -227,8 +229,10 @@ with torch.no_grad():
 
         test_preds = model(images)
         test_loss = criterion(test_preds, labels)
+        # print("labels", labels)
 
         __, tt_preds = torch.max(test_preds, dim=1)
+        # print("preds", tt_preds)
 
         test_correct_vals += torch.sum((tt_preds == labels)).item()
         test_total_imgs += labels.size(0)
