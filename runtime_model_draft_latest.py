@@ -257,14 +257,14 @@ with torch.no_grad():
     
     cm = confusion_matrix(labels_for_confusion, preds_for_confusion)
     disp = ConfusionMatrixDisplay(confusion_matrix=cm, display_labels=label_names)
-    disp.plot(xticks_rotation = 'vertical')
-
+    disp.plot()
+    plt.xticks(rotation = 'vertical')
     plt.tight_layout() # make tick labels fit
-    plt.savefig(f'confusion_matrix/confusion_matrix_{NUM_EPOCHS}epochs.png') #this will overwrite previous
-
-
+    plt.savefig(f'confusion_matrix/confusion_matrix_{:03d}epochs.png') #this will overwrite previous
 
 print(f"Total time: {((time.time() - training_loop_time)/60):.2f}")             #print total time for the whole training loop to process
 
-torch.save(model.state_dict(), "final_save.pt")             #Saves the model to a file called final_save.pt
+run.log({"train loss": train_loss, "test loss": test_loss, "train accuracy": train_accuracy})
 
+# Save the model based on epoch number and current time
+torch.save(model.state_dict(), f"saved_models/final_save_{NUM_EPOCHS:03d}_epochs_{int(time.time())}.pt")             #Saves the model to a file called final_save.pt
