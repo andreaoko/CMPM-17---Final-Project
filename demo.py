@@ -2,13 +2,21 @@ import torch
 from PIL import Image
 from torchvision.transforms import v2
 
-from trainModelFile import MyModel
+from runtime_model_draft_latest import ConvNet
 # REPLACE "trainModelFile" WITH THE NAME OF THE FILE WITH THE MODEL CLASS
+
+use_image = 1
+img_dict = {
+    1 : 'imagesOrganizedSplit/train/Cupressaceae/05738_Sequoia sempervirens.jpg',
+    2 : 'imagesOrganizedSplit/train/Oxalidaceae/01166_Oxalis pes-caprae.jpg'
+}
+
+
 
 # create the model class, and load the weights. make sure "model.pt" matches
 # the filename you used when saving the model (should be in the same folder as this file)
-model = MyModel()
-model.load_state_dict(torch.load("model.pt", weights_only=True))
+model = ConvNet()
+model.load_state_dict(torch.load("saved_models/final_save_100_epochs_1773632992.pt", weights_only=True))
 
 # set to eval mode (only matters if you are using dropout)
 model.eval()
@@ -17,11 +25,12 @@ model.eval()
 # make sure resize pixels here match your model, replace (100,100) with your size!
 transforms = v2.Compose([
     v2.ToTensor(),
-    v2.Resize((100,100)),
+    v2.Resize((224, 224)),
 ])
 
+
 # load the file "image.png", change this to your file name
-img = Image.open("image.png").convert('RGB')
+img = Image.open(img_dict[use_image]).convert('RGB')
 # apply transformations (resizing) to the image
 img = transforms(img)
 
