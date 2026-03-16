@@ -1,0 +1,41 @@
+CUDA is available. Using GPU.
+
+Train inputs: torch.Size([64, 3, 224, 224])
+Train outputs: torch.Size([64])
+
+Test inputs: torch.Size([16, 3, 224, 224])
+Test outputs: torch.Size([16])
+
+Validation inputs: torch.Size([16, 3, 224, 224])
+Validation outputs: torch.Size([16])
+
+Image shape: torch.Size([64, 3, 224, 224])
+Output shape: torch.Size([64, 25])
+Epoch: 1/20 || Training Loss: 2.737251 || Avg Training Loss: 5.002304 || Training Accuracy: 0.129425 || Runtime: 0.17 mins
+Epoch: 2/20 || Training Loss: 2.692427 || Avg Training Loss: 2.983841 || Training Accuracy: 0.187599 || Runtime: 0.15 mins
+Epoch: 3/20 || Training Loss: 2.526445 || Avg Training Loss: 2.640491 || Training Accuracy: 0.232469 || Runtime: 0.14 mins
+Epoch: 4/20 || Training Loss: 2.343721 || Avg Training Loss: 2.467031 || Training Accuracy: 0.266291 || Runtime: 0.14 mins
+Epoch: 5/20 || Training Loss: 2.540396 || Avg Training Loss: 2.376295 || Training Accuracy: 0.294025 || Runtime: 0.14 mins
+Epoch: 6/20 || Training Loss: 2.576669 || Avg Training Loss: 2.308809 || Training Accuracy: 0.306652 || Runtime: 0.14 mins
+Epoch: 7/20 || Training Loss: 1.763718 || Avg Training Loss: 2.151440 || Training Accuracy: 0.344532 || Runtime: 0.14 mins
+Epoch: 8/20 || Training Loss: 1.777587 || Avg Training Loss: 2.055836 || Training Accuracy: 0.373393 || Runtime: 0.14 mins
+Epoch: 9/20 || Training Loss: 1.891482 || Avg Training Loss: 2.008350 || Training Accuracy: 0.382413 || Runtime: 0.15 mins
+Epoch: 10/20 || Training Loss: 1.856021 || Avg Training Loss: 1.911178 || Training Accuracy: 0.414882 || Runtime: 0.14 mins
+Epoch: 11/20 || Training Loss: 2.667284 || Avg Training Loss: 1.876732 || Training Accuracy: 0.426607 || Runtime: 0.14 mins
+Epoch: 12/20 || Training Loss: 2.431446 || Avg Training Loss: 1.800968 || Training Accuracy: 0.447576 || Runtime: 0.14 mins
+Epoch: 13/20 || Training Loss: 1.519156 || Avg Training Loss: 1.724350 || Training Accuracy: 0.464487 || Runtime: 0.15 mins
+Epoch: 14/20 || Training Loss: 1.479750 || Avg Training Loss: 1.704667 || Training Accuracy: 0.472830 || Runtime: 0.14 mins
+Epoch: 15/20 || Training Loss: 1.522050 || Avg Training Loss: 1.603784 || Training Accuracy: 0.495603 || Runtime: 0.14 mins
+Epoch: 16/20 || Training Loss: 1.272089 || Avg Training Loss: 1.546520 || Training Accuracy: 0.509583 || Runtime: 0.15 mins
+Epoch: 17/20 || Training Loss: 1.614165 || Avg Training Loss: 1.508222 || Training Accuracy: 0.526945 || Runtime: 0.14 mins
+Epoch: 18/20 || Training Loss: 1.442906 || Avg Training Loss: 1.448530 || Training Accuracy: 0.544307 || Runtime: 0.14 mins
+Epoch: 19/20 || Training Loss: 1.644884 || Avg Training Loss: 1.362876 || Training Accuracy: 0.562796 || Runtime: 0.14 mins
+Epoch: 20/20 || Training Loss: 1.344621 || Avg Training Loss: 1.298488 || Training Accuracy: 0.590755 || Runtime: 0.14 mins
+
+Testing Phase
+Test Loss: 1.486534833908081 || Testing Accuracy: 0.441176
+Traceback (most recent call last):
+  File "/workspace/repo/CMPM-17---Final-Project/runtime_model_draft_latest.py", line 255, in <module>
+    plt.tightlayout() # make tick labels fit
+    ^^^^^^^^^^^^^^^
+AttributeError: module 'matplotlib.pyplot' has no attribute 'tightlayout'. Did you mean: 'tight_layout'?

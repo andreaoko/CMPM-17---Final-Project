@@ -21,7 +21,7 @@ from sklearn.metrics import confusion_matrix, ConfusionMatrixDisplay
 import matplotlib.pyplot as plt
 
 # Set epochs
-NUM_EPOCHS = 3
+NUM_EPOCHS = 1
 
 df = pd.read_csv("DownloadedImageData_NewPaths.csv")             #load data into dataframe
 
@@ -202,7 +202,7 @@ for epoch in range(NUM_EPOCHS):
     
     epoch_time = time.time() - epoch_start_time             #Calculate the time at the end of the epoch
 
-    print(f"Epoch: {epoch+1}/{NUM_EPOCHS} || Training Loss: {train_loss.item():.6f} || Avg Training Loss: {avg_train_loss:.6f} ||" 
+    print(f"Epoch: {epoch+1:03d}/{NUM_EPOCHS:03d} || Training Loss: {train_loss.item():.6f} || Avg Training Loss: {avg_train_loss:.6f} ||" 
           f" Training Accuracy: {train_accuracy:.6f} || Runtime: {(epoch_time/60):.2f} mins")
     model.eval()
 
@@ -226,27 +226,34 @@ with torch.no_grad():
     test_correct_vals = 0
     test_total_imgs = 0
 
+    labels_for_confusion = []
+    preds_for_confusion = []
+
     for images, labels in test_dataloader:
         images, labels = images.to(device), labels.to(device)           #moves the images and labels to the GPU
 
         test_preds = model(images)
         test_loss = criterion(test_preds, labels)
-        # print("labels", labels)
 
         __, tt_preds = torch.max(test_preds, dim=1)
-        # print("preds", tt_preds)
 
         test_correct_vals += torch.sum((tt_preds == labels)).item()
         test_total_imgs += labels.size(0)
+
+        preds_for_confusion.extend(tt_preds.cpu()) # Move to CPU and add to list of predictions
+        labels_for_confusion.extend(labels.cpu()) # Move to CPU and add to list of labels
 
     test_accuracy = test_correct_vals / test_total_imgs
     print(f"Test Loss: {test_loss.item()} || Testing Accuracy: {test_accuracy:.6f}")
 
     label_names = test_dataset.classes
-    cm = confusion_matrix(labels, tt_preds)
+    
+    cm = confusion_matrix(labels_for_confusion, preds_for_confusion)
     disp = ConfusionMatrixDisplay(confusion_matrix=cm, display_labels=label_names)
-    disp.plot()
-    plt.show()
+    disp.plot(xticks_rotation = 'vertical')
+
+    plt.tight_layout() # make tick labels fit
+    plt.savefig(f'confusion_matrix/confusion_matrix_{NUM_EPOCHS}epochs.png') #this will overwrite previous
 
 print(f"Total time: {((time.time() - training_loop_time)/60):.2f}")             #print total time for the whole training loop to process
 
