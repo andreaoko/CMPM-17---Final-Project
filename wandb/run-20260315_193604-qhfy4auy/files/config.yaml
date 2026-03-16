@@ -1,0 +1,52 @@
+_wandb:
+    value:
+        cli_version: 0.25.0
+        e:
+            wivex0dl73642585xsy3gcej739wxgzf:
+                apple:
+                    ecpuCores: 4
+                    gpuCores: 10
+                    memoryGb: 8
+                    name: Apple M2
+                    pcpuCores: 4
+                    ramTotalBytes: "8589934592"
+                    swapTotalBytes: "7516192768"
+                cpu_count: 8
+                cpu_count_logical: 8
+                disk:
+                    /:
+                        total: "245107195904"
+                        used: "210969210880"
+                email: aaokolo@ucsc.edu
+                executable: /usr/local/bin/python3
+                git:
+                    commit: a0929a40d10074fff5b9e28d6e5286612df020fb
+                    remote: https://github.com/andreaoko/CMPM-17---Final-Project.git
+                host: Andreas-MacBook-Pro.local
+                memory:
+                    total: "8589934592"
+                os: macOS-15.0.1-arm64-arm-64bit-Mach-O
+                program: <python with no main file>
+                python: CPython 3.14.2
+                root: /Users/andreaokolo/CMPM-17---Final-Project
+                startedAt: "2026-03-16T02:36:04.012178Z"
+                writerId: wivex0dl73642585xsy3gcej739wxgzf
+        m: []
+        python_version: 3.14.2
+        t:
+            "1":
+                - 1
+                - 5
+                - 41
+                - 53
+            "2":
+                - 1
+                - 5
+                - 41
+                - 53
+            "3":
+                - 13
+            "4": 3.14.2
+            "5": 0.25.0
+            "12": 0.25.0
+            "13": darwin-arm64

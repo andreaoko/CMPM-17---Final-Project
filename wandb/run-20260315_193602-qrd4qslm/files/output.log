@@ -1,0 +1,15 @@
+/Library/Frameworks/Python.framework/Versions/3.14/lib/python3.14/site-packages/torch/utils/data/dataloader.py:424: UserWarning: This DataLoader will create 16 worker processes in total. Our suggested max number of worker in current system is 8 (`cpuset` is not taken into account), which is smaller than what this DataLoader is going to create. Please be aware that excessive worker creation might get DataLoader running slow or even freeze, lower the worker number to avoid potential slowness/freeze if necessary.
+  self.check_worker_number_rationality()
+/Library/Frameworks/Python.framework/Versions/3.14/lib/python3.14/site-packages/torch/utils/data/dataloader.py:432: UserWarning: This DataLoader will create 16 worker processes in total. Our suggested max number of worker in current system is 8 (`cpuset` is not taken into account), which is smaller than what this DataLoader is going to create. Please be aware that excessive worker creation might get DataLoader running slow or even freeze, lower the worker number to avoid potential slowness/freeze if necessary.
+  self.check_worker_number_rationality()
+/Library/Frameworks/Python.framework/Versions/3.14/lib/python3.14/site-packages/torch/utils/data/dataloader.py:1118: UserWarning: 'pin_memory' argument is set as true but not supported on MPS now, device pinned memory won't be used.
+  super().__init__(loader)
+Traceback (most recent call last):
+  File [35m"<string>"[0m, line [35m1[0m, in [35m<module>[0m
+    from multiprocessing.spawn import spawn_main; [31mspawn_main[0m[1;31m(tracker_fd=17, pipe_handle=39)[0m
+                                                  [31m~~~~~~~~~~[0m[1;31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  File [35m"/Library/Frameworks/Python.framework/Versions/3.14/lib/python3.14/multiprocessing/spawn.py"[0m, line [35m122[0m, in [35mspawn_main[0m
+    exitcode = _main(fd, parent_sentinel)
+  File [35m"/Library/Frameworks/Python.framework/Versions/3.14/lib/python3.14/multiprocessing/spawn.py"[0m, line [35m131[0m, in [35m_main[0m
+    [31mprepare[0m[1;31m(preparation_data)[0m
+    [31m~~~~~~~[0m[1;31m^^^^^^^^^^^^^^^^^^[0m

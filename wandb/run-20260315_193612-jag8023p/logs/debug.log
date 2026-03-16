@@ -1,0 +1,12 @@
+2026-03-15 19:36:17,054 INFO    MainThread:3094 [wandb_setup.py:_flush():81] Current SDK version is 0.25.0
+2026-03-15 19:36:17,104 INFO    MainThread:3094 [wandb_setup.py:_flush():81] Configure stats pid to 3094
+2026-03-15 19:36:17,104 INFO    MainThread:3094 [wandb_setup.py:_flush():81] Loading settings from environment variables
+2026-03-15 19:36:17,110 INFO    MainThread:3094 [wandb_init.py:setup_run_log_directory():717] Logging user logs to /Users/andreaokolo/CMPM-17---Final-Project/wandb/run-20260315_193612-jag8023p/logs/debug.log
+2026-03-15 19:36:17,116 INFO    MainThread:3094 [wandb_init.py:setup_run_log_directory():718] Logging internal logs to /Users/andreaokolo/CMPM-17---Final-Project/wandb/run-20260315_193612-jag8023p/logs/debug-internal.log
+2026-03-15 19:36:17,122 INFO    MainThread:3094 [wandb_init.py:init():844] calling init triggers
+2026-03-15 19:36:17,123 INFO    MainThread:3094 [wandb_init.py:init():849] wandb.init called with sweep_config: {}
+config: {'_wandb': {}}
+2026-03-15 19:36:17,123 INFO    MainThread:3094 [wandb_init.py:init():892] starting backend
+2026-03-15 19:36:17,238 INFO    MainThread:3094 [wandb_init.py:init():895] sending inform_init request
+2026-03-15 19:36:17,661 INFO    wandb-AsyncioManager-main:3094 [service_client.py:_forward_responses():134] Reached EOF.
+2026-03-15 19:36:17,698 INFO    wandb-AsyncioManager-main:3094 [mailbox.py:close():155] Closing mailbox, abandoning 0 handles.

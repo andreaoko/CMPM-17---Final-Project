@@ -1,0 +1,11 @@
+{"time":"2026-03-15T19:36:13.597335-07:00","level":"INFO","msg":"stream: starting","core version":"0.25.0"}
+{"time":"2026-03-15T19:36:16.43796-07:00","level":"INFO","msg":"stream: created new stream","id":"iwd8exve"}
+{"time":"2026-03-15T19:36:16.950242-07:00","level":"INFO","msg":"handler: started","stream_id":"iwd8exve"}
+{"time":"2026-03-15T19:36:16.976375-07:00","level":"INFO","msg":"stream: started","id":"iwd8exve"}
+{"time":"2026-03-15T19:36:16.977646-07:00","level":"INFO","msg":"writer: started","stream_id":"iwd8exve"}
+{"time":"2026-03-15T19:36:16.977667-07:00","level":"INFO","msg":"sender: started","stream_id":"iwd8exve"}
+{"time":"2026-03-15T19:36:17.61767-07:00","level":"INFO","msg":"stream: closing","id":"iwd8exve"}
+{"time":"2026-03-15T19:36:18.213955-07:00","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2026-03-15T19:36:19.179537-07:00","level":"INFO","msg":"handler: closed","stream_id":"iwd8exve"}
+{"time":"2026-03-15T19:36:21.310011-07:00","level":"INFO","msg":"sender: closed","stream_id":"iwd8exve"}
+{"time":"2026-03-15T19:36:21.310108-07:00","level":"INFO","msg":"stream: closed","id":"iwd8exve"}
