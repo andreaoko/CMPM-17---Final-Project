@@ -1,0 +1,36 @@
+
+Train inputs: torch.Size([64, 3, 224, 224])
+Train outputs: torch.Size([64])
+
+Test inputs: torch.Size([2, 3, 224, 224])
+Test outputs: torch.Size([2])
+
+Validation inputs: torch.Size([16, 3, 224, 224])
+Validation outputs: torch.Size([16])
+
+Image shape: torch.Size([64, 3, 224, 224])
+Output shape: torch.Size([64, 25])
+Epoch: 001/001 || Training Loss: 0.000000 || Avg Training Loss: 0.519406 || Training Accuracy: 0.819242 || Runtime: 0.41 mins
+
+Testing Phase
+Test Loss: 2.324577963008778e-06 || Testing Accuracy: 1.000000
+/Library/Frameworks/Python.framework/Versions/3.14/lib/python3.14/site-packages/sklearn/metrics/_classification.py:620: UserWarning: A single label was found in 'y_true' and 'y_pred'. For the confusion matrix to have the correct shape, use the 'labels' parameter to pass all known labels.
+  warnings.warn(
+Total time: 0.42
+Traceback (most recent call last):
+  File "/Users/andreaokolo/CMPM-17---Final-Project/runtime_model_draft_latest.py", line 279, in <module>
+    torch.save(model.state_dict(), f"saved_models/final_save_{NUM_EPOCHS:03d}_epochs_{int(time.time())}.pt")             #Saves the model to a file called final_save.pt
+    ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.14/lib/python3.14/site-packages/torch/serialization.py", line 976, in save
+    with _open_zipfile_writer(f) as opened_zipfile:
+         ~~~~~~~~~~~~~~~~~~~~^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.14/lib/python3.14/site-packages/torch/serialization.py", line 838, in _open_zipfile_writer
+    return container(name_or_buffer)  # type: ignore[arg-type]
+  File "/Library/Frameworks/Python.framework/Versions/3.14/lib/python3.14/site-packages/torch/serialization.py", line 802, in __init__
+    torch._C.PyTorchFileWriter(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        self.name, get_crc32_options(), _get_storage_alignment()
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+RuntimeError: Parent directory saved_models does not exist.

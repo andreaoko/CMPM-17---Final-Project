@@ -21,6 +21,7 @@ import os
 from torchvision.datasets import ImageFolder
 import time
 import wandb
+from sklearn.metrics import f1_score
 
 #For confusion matrix
 from sklearn.metrics import confusion_matrix, ConfusionMatrixDisplay
@@ -235,8 +236,8 @@ if __name__ == '__main__': # Prevents the model from rerunning when importing to
         test_correct_vals = 0
         test_total_imgs = 0
 
-        labels_for_confusion = []
-        preds_for_confusion = []
+        labels_for_confusion = []                       #labels and preds for both confusion matrix and f1 score
+        preds_for_confusion = []                        
 
         for images, labels in test_dataloader:
             images, labels = images.to(device), labels.to(device)           #moves the images and labels to the GPU
@@ -271,9 +272,14 @@ if __name__ == '__main__': # Prevents the model from rerunning when importing to
         plt.tight_layout() # make tick labels fit
         plt.savefig(f'confusion_matrix/confusion_matrix_{NUM_EPOCHS:03d}epochs.png') #this will overwrite previous
 
+
+
     print(f"Total time: {((time.time() - training_loop_time)/60):.2f}")             #print total time for the whole training loop to process
 
     run.log({"train loss": train_loss, "test loss": test_loss, "train accuracy": train_accuracy})
 
     # Save the model based on epoch number and current time
     torch.save(model.state_dict(), f"saved_models/final_save_{NUM_EPOCHS:03d}_epochs_{int(time.time())}.pt")             #Saves the model to a file called final_save.pt
+
+f1_macro = f1_score(labels_for_confusion, preds_for_confusion, average="macro")
+run.log({"Test f1 score":f1_macro})
