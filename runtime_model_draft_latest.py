@@ -25,7 +25,7 @@ NUM_EPOCHS = 3
 
 df = pd.read_csv("DownloadedImageData_NewPaths.csv")             #load data into dataframe
 
-run = wandb.init(project="example-test", name="my-run")
+run = wandb.init(project="Final Plant Family Model", name="Test Loss and Test Accuracy Graphs")
 
 #Checking for device automatically
 if torch.cuda.is_available():
@@ -239,8 +239,15 @@ with torch.no_grad():
         test_correct_vals += torch.sum((tt_preds == labels)).item()
         test_total_imgs += labels.size(0)
 
+        run.log({"Test Loss": test_loss})
+
+
+
     test_accuracy = test_correct_vals / test_total_imgs
     print(f"Test Loss: {test_loss.item()} || Testing Accuracy: {test_accuracy:.6f}")
+
+    for epoch in range(NUM_EPOCHS):
+        run.log({"Test Accuracy": test_accuracy})
 
     label_names = test_dataset.classes
     cm = confusion_matrix(labels, tt_preds)
@@ -248,9 +255,9 @@ with torch.no_grad():
     disp.plot()
     plt.show()
 
+
+
 print(f"Total time: {((time.time() - training_loop_time)/60):.2f}")             #print total time for the whole training loop to process
 
-run.log({"train loss": train_loss, "test loss": test_loss, "train accuracy": train_accuracy})
 torch.save(model.state_dict(), "final_save.pt")             #Saves the model to a file called final_save.pt
 
-print("hello world")
