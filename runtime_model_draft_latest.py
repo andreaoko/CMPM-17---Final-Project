@@ -25,14 +25,15 @@ NUM_EPOCHS = 1
 
 df = pd.read_csv("DownloadedImageData_NewPaths.csv")             #load data into dataframe
 
-run = wandb.init(project="Final Plant Family Model", name="Test Loss and Test Accuracy Graphs")
+if __name__ == '__main__': #skip these for demo
+    run = wandb.init(project="Final Plant Family Model", name="Test Loss and Test Accuracy Graphs")
 
-#Checking for device automatically
-if torch.cuda.is_available():
-    device = "cuda"
-    print("CUDA is available. Using GPU.")
-else:
-    device = "cpu"
+    #Checking for device automatically
+    if torch.cuda.is_available():
+        device = "cuda"
+        print("CUDA is available. Using GPU.")
+    else:
+        device = "cpu"
 
 
 
@@ -96,21 +97,21 @@ val_dataloader = DataLoader(val_dataset, batch_size=16, pin_memory=True,num_work
 
  
 
-#Check dataloader outputs 
-for images, labels in train_dataloader:
-    print(f"\nTrain inputs: {images.size()}")       #Input order: ([batch size, channels, img height, img width])
-    print(f"Train outputs: {labels.size()}")        #Output order: ([batch size])
-    break
+if __name__ == '__main__': #Check dataloader outputs (not if importing this as a module)
+    for images, labels in train_dataloader:
+        print(f"\nTrain inputs: {images.size()}")       #Input order: ([batch size, channels, img height, img width])
+        print(f"Train outputs: {labels.size()}")        #Output order: ([batch size])
+        break
 
-for images, labels in test_dataloader:
-    print(f"\nTest inputs: {images.size()}")
-    print(f"Test outputs: {labels.size()}")
-    break
-    
-for images, labels in val_dataloader:
-    print(f"\nValidation inputs: {images.size()}")
-    print(f"Validation outputs: {labels.size()}")
-    break
+    for images, labels in test_dataloader:
+        print(f"\nTest inputs: {images.size()}")
+        print(f"Test outputs: {labels.size()}")
+        break
+        
+    for images, labels in val_dataloader:
+        print(f"\nValidation inputs: {images.size()}")
+        print(f"Validation outputs: {labels.size()}")
+        break
 
 
 
