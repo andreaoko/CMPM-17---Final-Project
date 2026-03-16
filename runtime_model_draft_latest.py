@@ -16,6 +16,10 @@ from torchvision.datasets import ImageFolder
 import time
 import wandb
 
+#For confusion matrix
+from sklearn.metrics import confusion_matrix, ConfusionMatrixDisplay
+import matplotlib.pyplot as plt
+
 # Set epochs
 NUM_EPOCHS = 3
 
@@ -239,6 +243,12 @@ with torch.no_grad():
 
     test_accuracy = test_correct_vals / test_total_imgs
     print(f"Test Loss: {test_loss.item()} || Testing Accuracy: {test_accuracy:.6f}")
+
+    label_names = test_dataset.classes
+    cm = confusion_matrix(labels, tt_preds)
+    disp = ConfusionMatrixDisplay(confusion_matrix=cm, display_labels=label_names)
+    disp.plot()
+    plt.show()
 
 print(f"Total time: {((time.time() - training_loop_time)/60):.2f}")             #print total time for the whole training loop to process
 
