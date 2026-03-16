@@ -62,12 +62,8 @@ print('#' * (len(demo_pred_name) + 24))
 print(f'# Model predicts: {demo_pred_name} !!! #')
 print('#' * (len(demo_pred_name) + 24))
 print('\n')
+
+'''       Example output        '''
 ###################################
 # Model predicts: Oxalidaceae !!! #
-
 ###################################
-
-# at minimum the output should print a prediction, but if you are doing classification,
-# use Softmax to turn the output into percentages 
-# (see week 4 day 2 activity document on canvas)
-# also, try to convert the raw number output into understandable classes
