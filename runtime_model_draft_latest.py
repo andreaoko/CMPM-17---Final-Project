@@ -98,9 +98,10 @@ val_dataset = ImageFolder(os.path.join(root,'val'), transform=transforms)
 
 #Create dataloaders
 train_dataloader = DataLoader(train_dataset, batch_size=64, pin_memory=True, num_workers=16, shuffle=True)  #Use pin_memory=True & num_workers=16 for helping speed up GPU processes    
-test_dataloader = DataLoader(test_dataset, batch_size=16, pin_memory=True, num_workers=16, shuffle=True)    #Exclude pin_memory=True & num_workers=16 when running on local device otherwise code will not run
-val_dataloader = DataLoader(val_dataset, batch_size=16, pin_memory=True,num_workers=16, shuffle=True)       #num_workers helps with memory usage; num_workers operates by splitting the data into multiple subprocesses that run at the same time and speed up data computations. Helpful for faster calculations and large datasets
+test_dataloader = DataLoader(test_dataset, batch_size=16, pin_memory=True, num_workers=16,  shuffle=True)    #Exclude pin_memory=True & num_workers=16 when running on local device otherwise code will not run
+val_dataloader = DataLoader(val_dataset, batch_size=16, pin_memory=True, num_workers=16, shuffle=True)       #num_workers helps with memory usage; num_workers operates by splitting the data into multiple subprocesses that run at the same time and speed up data computations. Helpful for faster calculations and large datasets
                                                                                                             #using pin_memory=True allows for tensors to be copied to CUDA before returning an output. Also speeds up computational processes
+                                                                                                            #Copy and paste pin_memory=True, num_workers=16, when debugging between cpu and gpu
 
  
 
@@ -236,8 +237,8 @@ if __name__ == '__main__': # Prevents the model from rerunning when importing to
         test_correct_vals = 0
         test_total_imgs = 0
 
-        labels_for_confusion = []                       #labels and preds for both confusion matrix and f1 score
-        preds_for_confusion = []                        
+        labels_list = []                       #labels and preds for both confusion matrix and f1 score
+        preds_list = []                        
 
         for images, labels in test_dataloader:
             images, labels = images.to(device), labels.to(device)           #moves the images and labels to the GPU
@@ -253,9 +254,8 @@ if __name__ == '__main__': # Prevents the model from rerunning when importing to
             run.log({"Test Loss": test_loss})
 
 
-
-            preds_for_confusion.extend(tt_preds.cpu()) # Move to CPU and add to list of predictions
-            labels_for_confusion.extend(labels.cpu()) # Move to CPU and add to list of labels
+            preds_list.extend(tt_preds.cpu()) # Move to CPU and add to list of predictions
+            labels_list.extend(labels.cpu()) # Move to CPU and add to list of labels
 
         test_accuracy = test_correct_vals / test_total_imgs
         print(f"Test Loss: {test_loss.item()} || Testing Accuracy: {test_accuracy:.6f}")
@@ -265,12 +265,15 @@ if __name__ == '__main__': # Prevents the model from rerunning when importing to
 
         label_names = test_dataset.classes
         
-        cm = confusion_matrix(labels_for_confusion, preds_for_confusion)
+        cm = confusion_matrix(labels_list, preds_list)
         disp = ConfusionMatrixDisplay(confusion_matrix=cm, display_labels=label_names)
         disp.plot()
         plt.xticks(rotation = 'vertical')
         plt.tight_layout() # make tick labels fit
         plt.savefig(f'confusion_matrix/confusion_matrix_{NUM_EPOCHS:03d}epochs.png') #this will overwrite previous
+
+        f1_macro =f1_score(labels_list, preds_list, average="macro")      #compute f1 score
+        run.log({"Test f1 score":f1_macro})                                                 
 
 
 
@@ -281,5 +284,4 @@ if __name__ == '__main__': # Prevents the model from rerunning when importing to
     # Save the model based on epoch number and current time
     torch.save(model.state_dict(), f"saved_models/final_save_{NUM_EPOCHS:03d}_epochs_{int(time.time())}.pt")             #Saves the model to a file called final_save.pt
 
-#f1_macro = f1_score(labels_for_confusion, preds_for_confusion, average="macro")
-#run.log({"Test f1 score":f1_macro})
+
