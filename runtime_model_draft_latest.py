@@ -33,7 +33,7 @@ NUM_EPOCHS = 1
 df = pd.read_csv("DownloadedImageData_NewPaths.csv")             #load data into dataframe
 
 if __name__ == '__main__': #skip these for demo
-    run = wandb.init(project="Final Plant Family Model", name="Test Loss and Test Accuracy Graphs")
+    run = wandb.init(project="Final Plant Family Models", name="All Graphs (Test)")
 
     #Checking for device automatically
     if torch.cuda.is_available():
@@ -208,6 +208,9 @@ if __name__ == '__main__': # Prevents the model from rerunning when importing to
             train_loss.backward()       #calculates slopes  
             optimizer.step()            #updates weights
             
+            run.log({"Training Loss": train_loss})     #return graph of training loss
+
+
         train_accuracy = train_correct_vals / train_total_imgs          #calcualte train accuracy by dividing total correct values over total images processed
         avg_train_loss = train_total_loss / len(train_dataloader)       #caluclate average training loss by dividing total loss value over the total items in the train_dataloaders
         
@@ -216,6 +219,7 @@ if __name__ == '__main__': # Prevents the model from rerunning when importing to
         print(f"Epoch: {epoch+1:03d}/{NUM_EPOCHS:03d} || Training Loss: {train_loss.item():.6f} || Avg Training Loss: {avg_train_loss:.6f} ||" 
             f" Training Accuracy: {train_accuracy:.6f} || Runtime: {(epoch_time/60):.2f} mins")
         model.eval()
+
 
     #Validation loop
         with torch.no_grad():                                               #disables background gradient calculations; Using in validation loop helps speed up the model output
@@ -228,7 +232,9 @@ if __name__ == '__main__': # Prevents the model from rerunning when importing to
                 __, v_preds = torch.max(val_preds, dim=1)
                         
                 v_correct_vals += torch.sum((v_preds == labels)).item()                                                    
-                v_total_imgs += labels.size(0)        
+                v_total_imgs += labels.size(0)    
+
+                run.log({"Validation Loss": val_loss})    #return graph of validation loss
 
 
     print("\nTesting Phase")
@@ -251,7 +257,7 @@ if __name__ == '__main__': # Prevents the model from rerunning when importing to
             test_correct_vals += torch.sum((tt_preds == labels)).item()
             test_total_imgs += labels.size(0)
 
-            run.log({"Test Loss": test_loss})
+            run.log({"Test Loss": test_loss})       #return Test loss graph
 
 
             preds_list.extend(tt_preds.cpu()) # Move to CPU and add to list of predictions
@@ -261,7 +267,7 @@ if __name__ == '__main__': # Prevents the model from rerunning when importing to
         print(f"Test Loss: {test_loss.item()} || Testing Accuracy: {test_accuracy:.6f}")
 
         for epoch in range(NUM_EPOCHS):
-            run.log({"Test Accuracy": test_accuracy})
+            run.log({"Test Accuracy": test_accuracy})       #return Test Accuracy graph
 
         label_names = test_dataset.classes
         
@@ -273,7 +279,7 @@ if __name__ == '__main__': # Prevents the model from rerunning when importing to
         plt.savefig(f'confusion_matrix/confusion_matrix_{NUM_EPOCHS:03d}epochs.png') #this will overwrite previous
 
         f1_macro =f1_score(labels_list, preds_list, average="macro")      #compute f1 score
-        run.log({"Test f1 score":f1_macro})                                                 
+        run.log({"Test F1 Score - Macro": f1_macro})           #Test F1 Score - Macro                                            
 
 
 
@@ -283,5 +289,3 @@ if __name__ == '__main__': # Prevents the model from rerunning when importing to
 
     # Save the model based on epoch number and current time
     torch.save(model.state_dict(), f"saved_models/final_save_{NUM_EPOCHS:03d}_epochs_{int(time.time())}.pt")             #Saves the model to a file called final_save.pt
-
-
