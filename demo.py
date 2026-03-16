@@ -27,7 +27,7 @@ print(f"Using Model {model_to_use}")
 # create the model class, and load the weights. make sure "model.pt" matches
 # the filename you used when saving the model (should be in the same folder as this file)
 model = ConvNet()
-model.load_state_dict(torch.load(model_to_use, weights_only=True))
+model.load_state_dict(torch.load(model_to_use, weights_only=True, map_location='cpu'))
 
 # set to eval mode (only matters if you are using dropout)
 model.eval()

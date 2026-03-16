@@ -1,0 +1,54 @@
+
+Train inputs: torch.Size([64, 3, 224, 224])
+Train outputs: torch.Size([64])
+
+Test inputs: torch.Size([2, 3, 224, 224])
+Test outputs: torch.Size([2])
+
+Validation inputs: torch.Size([16, 3, 224, 224])
+Validation outputs: torch.Size([16])
+
+Image shape: torch.Size([64, 3, 224, 224])
+Output shape: torch.Size([64, 25])
+Epoch: 001/001 || Training Loss: 0.000000 || Avg Training Loss: 0.582498 || Training Accuracy: 0.813411 || Runtime: 0.24 mins
+
+Testing Phase
+Test Loss: 17.377300262451172 || Testing Accuracy: 0.000000
+Traceback (most recent call last):
+  File "/Users/andreaokolo/CMPM-17---Final-Project/runtime_model_draft_latest.py", line 270, in <module>
+    disp.plot()
+    ~~~~~~~~~^^
+  File "/Library/Frameworks/Python.framework/Versions/3.14/lib/python3.14/site-packages/sklearn/metrics/_plot/confusion_matrix.py", line 188, in plot
+    ax.set(
+    ~~~~~~^
+        xticks=np.arange(n_classes),
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<4 lines>...
+        xlabel="Predicted label",
+        ^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Library/Frameworks/Python.framework/Versions/3.14/lib/python3.14/site-packages/matplotlib/artist.py", line 146, in <lambda>
+    cls.set = lambda self, **kwargs: Artist.set(self, **kwargs)
+                                     ~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.14/lib/python3.14/site-packages/matplotlib/artist.py", line 1241, in set
+    return self._internal_update(cbook.normalize_kwargs(kwargs, self))
+           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.14/lib/python3.14/site-packages/matplotlib/artist.py", line 1233, in _internal_update
+    return self._update_props(
+           ~~~~~~~~~~~~~~~~~~^
+        kwargs, "{cls.__name__}.set() got an unexpected keyword argument "
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        "{prop_name!r}")
+        ^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.14/lib/python3.14/site-packages/matplotlib/artist.py", line 1209, in _update_props
+    ret.append(func(v))
+               ~~~~^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.14/lib/python3.14/site-packages/matplotlib/axes/_base.py", line 74, in wrapper
+    return get_method(self)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.14/lib/python3.14/site-packages/matplotlib/axis.py", line 2106, in set_ticklabels
+    raise ValueError(
+    ...<3 lines>...
+        f" the number of labels ({len(labels)}).")
+ValueError: The number of FixedLocator locations (2), usually from a call to set_ticks, does not match the number of labels (1).

@@ -1,0 +1,20 @@
+
+Train inputs: torch.Size([64, 3, 224, 224])
+Train outputs: torch.Size([64])
+
+Test inputs: torch.Size([2, 3, 224, 224])
+Test outputs: torch.Size([2])
+
+Validation inputs: torch.Size([16, 3, 224, 224])
+Validation outputs: torch.Size([16])
+
+Image shape: torch.Size([64, 3, 224, 224])
+Output shape: torch.Size([64, 25])
+Epoch: 001/001 || Training Loss: 0.000000 || Avg Training Loss: 0.585738 || Training Accuracy: 0.816327 || Runtime: 0.27 mins
+
+Testing Phase
+Test Loss: 6.314712047576904 || Testing Accuracy: 0.000000
+Traceback (most recent call last):
+  File "/Users/andreaokolo/CMPM-17---Final-Project/runtime_model_draft_latest.py", line 266, in <module>
+    label_names = test_dataset.classes()
+TypeError: 'list' object is not callable

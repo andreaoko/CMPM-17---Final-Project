@@ -1,0 +1,11 @@
+{"time":"2026-03-16T11:23:01.304115-07:00","level":"INFO","msg":"stream: starting","core version":"0.25.0"}
+{"time":"2026-03-16T11:23:01.549552-07:00","level":"INFO","msg":"stream: created new stream","id":"vuxjurwu"}
+{"time":"2026-03-16T11:23:01.551315-07:00","level":"INFO","msg":"handler: started","stream_id":"vuxjurwu"}
+{"time":"2026-03-16T11:23:01.551374-07:00","level":"INFO","msg":"stream: started","id":"vuxjurwu"}
+{"time":"2026-03-16T11:23:01.551834-07:00","level":"INFO","msg":"writer: started","stream_id":"vuxjurwu"}
+{"time":"2026-03-16T11:23:01.551872-07:00","level":"INFO","msg":"sender: started","stream_id":"vuxjurwu"}
+{"time":"2026-03-16T11:23:30.289804-07:00","level":"INFO","msg":"stream: closing","id":"vuxjurwu"}
+{"time":"2026-03-16T11:23:31.22455-07:00","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2026-03-16T11:23:31.612041-07:00","level":"INFO","msg":"handler: closed","stream_id":"vuxjurwu"}
+{"time":"2026-03-16T11:23:31.622093-07:00","level":"INFO","msg":"sender: closed","stream_id":"vuxjurwu"}
+{"time":"2026-03-16T11:23:31.622145-07:00","level":"INFO","msg":"stream: closed","id":"vuxjurwu"}
