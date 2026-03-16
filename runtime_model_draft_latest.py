@@ -158,6 +158,7 @@ class ConvNet(nn.Module):
 if __name__ == '__main__': # Prevents the model from rerunning when importing to the demo file
 
     model = ConvNet()                               
+    model.to(device)    #connect model to gpu
 
     #Check output of the model
     for images, label in train_dataloader:
@@ -166,9 +167,7 @@ if __name__ == '__main__': # Prevents the model from rerunning when importing to
         print(f'Output shape: {output_model.shape}')                                                                #print the output tensor of model shape
         # print(output_model[0])                                                                                      #prints image shape for first image in batch
         break
-
-    model.to(device) 
-
+     
 
     #Training, Validation and Testing Loop
 
