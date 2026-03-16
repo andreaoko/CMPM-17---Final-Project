@@ -259,3 +259,5 @@ print(f"Total time: {((time.time() - training_loop_time)/60):.2f}")             
 
 run.log({"train loss": train_loss, "test loss": test_loss, "train accuracy": train_accuracy})
 torch.save(model.state_dict(), "final_save.pt")             #Saves the model to a file called final_save.pt
+
+print("hello world")
