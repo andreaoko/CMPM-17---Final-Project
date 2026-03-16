@@ -1,0 +1,21 @@
+
+Train inputs: torch.Size([64, 3, 224, 224])
+Train outputs: torch.Size([64])
+
+Test inputs: torch.Size([2, 3, 224, 224])
+Test outputs: torch.Size([2])
+
+Validation inputs: torch.Size([16, 3, 224, 224])
+Validation outputs: torch.Size([16])
+
+Image shape: torch.Size([64, 3, 224, 224])
+Output shape: torch.Size([64, 25])
+Epoch: 1/5 || Training Loss: 0.000000 || Avg Training Loss: 0.480877 || Training Accuracy: 0.848397 || Runtime: 0.30 mins
+Epoch: 2/5 || Training Loss: 0.000000 || Avg Training Loss: 0.054327 || Training Accuracy: 0.997085 || Runtime: 0.28 mins
+Epoch: 3/5 || Training Loss: 0.123501 || Avg Training Loss: 0.787580 || Training Accuracy: 0.965015 || Runtime: 0.26 mins
+Epoch: 4/5 || Training Loss: 0.014609 || Avg Training Loss: 0.223073 || Training Accuracy: 0.985423 || Runtime: 0.24 mins
+Epoch: 5/5 || Training Loss: 0.000000 || Avg Training Loss: 0.000633 || Training Accuracy: 1.000000 || Runtime: 0.24 mins
+
+Testing Phase
+Test Loss: 0.0 || Testing Accuracy: 1.000000
+Total time: 1.37
