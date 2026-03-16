@@ -281,5 +281,3 @@ if __name__ == '__main__': # Prevents the model from rerunning when importing to
     # Save the model based on epoch number and current time
     torch.save(model.state_dict(), f"saved_models/final_save_{NUM_EPOCHS:03d}_epochs_{int(time.time())}.pt")             #Saves the model to a file called final_save.pt
 
-f1_macro = f1_score(labels_for_confusion, preds_for_confusion, average="macro")
-run.log({"Test f1 score":f1_macro})
