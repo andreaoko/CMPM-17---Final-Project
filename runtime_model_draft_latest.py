@@ -260,7 +260,7 @@ with torch.no_grad():
     disp.plot()
     plt.xticks(rotation = 'vertical')
     plt.tight_layout() # make tick labels fit
-    plt.savefig(f'confusion_matrix/confusion_matrix_{:03d}epochs.png') #this will overwrite previous
+    plt.savefig(f'confusion_matrix/confusion_matrix_{NUM_EPOCHS:03d}epochs.png') #this will overwrite previous
 
 print(f"Total time: {((time.time() - training_loop_time)/60):.2f}")             #print total time for the whole training loop to process
 
