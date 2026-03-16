@@ -64,6 +64,7 @@ print('#' * (len(demo_pred_name) + 24))
 print('\n')
 
 '''       Example output        '''
+
 # Plant Family Identifier
 # Andrea Okolo and Griffin Svec-Burdick
 # CMPM17 Winter 2026 Final Project
@@ -73,6 +74,7 @@ print('\n')
 
 #      Model thinking...
 
-###################################
-# Model predicts: Oxalidaceae !!! #
-###################################
+
+####################################
+# Model predicts: Cupressaceae !!! #
+####################################
