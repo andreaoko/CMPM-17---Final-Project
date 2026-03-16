@@ -18,7 +18,7 @@ img_dict = {
     1 : 'imagesOrganizedSplit/train/Cupressaceae/05738_Sequoia sempervirens.jpg',
     2 : 'imagesOrganizedSplit/train/Oxalidaceae/01166_Oxalis pes-caprae.jpg'
 }
-model_to_use = "saved_models/final_save_100_epochs_1773632992.pt"
+model_to_use = "Saved_Model_For_Demo.pt"
 
 print('\n\nPlant Family Identifier\nAndrea Okolo and Griffin Svec-Burdick\nCMPM17 Winter 2026 Final Project\n')
 print(f"Input file: {img_dict[use_image]}")
