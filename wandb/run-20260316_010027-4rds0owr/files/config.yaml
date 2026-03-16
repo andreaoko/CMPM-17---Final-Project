@@ -1,0 +1,51 @@
+_wandb:
+    value:
+        cli_version: 0.25.1
+        e:
+            0lh1n3t33nc3g3931xlzxvvz7g1b2dcx:
+                codePath: runtime_model_draft_latest.py
+                codePathLocal: runtime_model_draft_latest.py
+                cpu_count: 64
+                cpu_count_logical: 128
+                cudaVersion: "12.4"
+                disk:
+                    /:
+                        total: "5368709120"
+                        used: "1001267200"
+                email: aaokolo@ucsc.edu
+                executable: /usr/local/bin/python
+                git:
+                    commit: 8322f8191e3102fb1e189cf5c0d10928820c3dbf
+                    remote: https://github.com/andreaoko/CMPM-17---Final-Project
+                gpu: NVIDIA RTX 4000 Ada Generation
+                gpu_count: 1
+                gpu_nvidia:
+                    - architecture: Ada
+                      cudaCores: 6144
+                      memoryTotal: "21469593600"
+                      name: NVIDIA RTX 4000 Ada Generation
+                      uuid: GPU-4d21dbd2-607a-5808-aacc-daf2e46ec694
+                host: 0d1e24083292
+                memory:
+                    total: "540656259072"
+                os: Linux-6.8.0-40-generic-x86_64-with-glibc2.39
+                program: /workspace/repo/CMPM-17---Final-Project/runtime_model_draft_latest.py
+                python: CPython 3.12.3
+                root: /workspace/repo/CMPM-17---Final-Project
+                startedAt: "2026-03-16T01:00:27.464827Z"
+                writerId: 0lh1n3t33nc3g3931xlzxvvz7g1b2dcx
+        m: []
+        python_version: 3.12.3
+        t:
+            "1":
+                - 1
+                - 41
+            "2":
+                - 1
+                - 41
+            "3":
+                - 13
+            "4": 3.12.3
+            "5": 0.25.1
+            "12": 0.25.1
+            "13": linux-x86_64

@@ -1,0 +1,68 @@
+CUDA is available. Using GPU.
+
+Train inputs: torch.Size([64, 3, 224, 224])
+Train outputs: torch.Size([64])
+
+Test inputs: torch.Size([16, 3, 224, 224])
+Test outputs: torch.Size([16])
+
+Validation inputs: torch.Size([16, 3, 224, 224])
+Validation outputs: torch.Size([16])
+
+Image shape: torch.Size([64, 3, 224, 224])
+Output shape: torch.Size([64, 25])
+Epoch: 1/15 || Training Loss: 3.143920 || Avg Training Loss: 5.117528 || Training Accuracy: 0.096054 || Runtime: 0.16 mins
+Epoch: 2/15 || Training Loss: 2.830962 || Avg Training Loss: 3.025571 || Training Accuracy: 0.144532 || Runtime: 0.14 mins
+Epoch: 3/15 || Training Loss: 3.144690 || Avg Training Loss: 2.784169 || Training Accuracy: 0.187373 || Runtime: 0.15 mins
+Epoch: 4/15 || Training Loss: 2.204771 || Avg Training Loss: 2.624917 || Training Accuracy: 0.212852 || Runtime: 0.14 mins
+Epoch: 5/15 || Training Loss: 2.560373 || Avg Training Loss: 2.511842 || Training Accuracy: 0.239910 || Runtime: 0.14 mins
+Epoch: 6/15 || Training Loss: 2.443404 || Avg Training Loss: 2.405556 || Training Accuracy: 0.269673 || Runtime: 0.14 mins
+Epoch: 7/15 || Training Loss: 2.323423 || Avg Training Loss: 2.333757 || Training Accuracy: 0.290192 || Runtime: 0.14 mins
+Epoch: 8/15 || Training Loss: 2.142421 || Avg Training Loss: 2.279818 || Training Accuracy: 0.300564 || Runtime: 0.14 mins
+Epoch: 9/15 || Training Loss: 2.478961 || Avg Training Loss: 2.210251 || Training Accuracy: 0.328523 || Runtime: 0.14 mins
+Epoch: 10/15 || Training Loss: 1.987502 || Avg Training Loss: 2.138618 || Training Accuracy: 0.337317 || Runtime: 0.14 mins
+Epoch: 11/15 || Training Loss: 2.123259 || Avg Training Loss: 2.074099 || Training Accuracy: 0.367982 || Runtime: 0.14 mins
+Epoch: 12/15 || Training Loss: 1.833815 || Avg Training Loss: 2.003869 || Training Accuracy: 0.376325 || Runtime: 0.14 mins
+Epoch: 13/15 || Training Loss: 1.725173 || Avg Training Loss: 1.931356 || Training Accuracy: 0.404961 || Runtime: 0.14 mins
+Epoch: 14/15 || Training Loss: 1.992609 || Avg Training Loss: 1.899881 || Training Accuracy: 0.416685 || Runtime: 0.14 mins
+Epoch: 15/15 || Training Loss: 1.607196 || Avg Training Loss: 1.844841 || Training Accuracy: 0.413754 || Runtime: 0.14 mins
+
+Testing Phase
+Test Loss: 1.9616501331329346 || Testing Accuracy: 0.500000
+Test Loss: 2.2827911376953125 || Testing Accuracy: 0.406250
+Test Loss: 1.367382287979126 || Testing Accuracy: 0.479167
+Test Loss: 2.6338932514190674 || Testing Accuracy: 0.421875
+Test Loss: 1.7799768447875977 || Testing Accuracy: 0.412500
+Test Loss: 2.195436954498291 || Testing Accuracy: 0.385417
+Test Loss: 1.650832176208496 || Testing Accuracy: 0.383929
+Test Loss: 1.575314998626709 || Testing Accuracy: 0.398438
+Test Loss: 1.7083971500396729 || Testing Accuracy: 0.409722
+Test Loss: 1.8640702962875366 || Testing Accuracy: 0.406250
+Test Loss: 1.6198961734771729 || Testing Accuracy: 0.397727
+Test Loss: 1.9570167064666748 || Testing Accuracy: 0.401042
+Test Loss: 2.5009636878967285 || Testing Accuracy: 0.379808
+Test Loss: 2.125190258026123 || Testing Accuracy: 0.379464
+Test Loss: 2.4396190643310547 || Testing Accuracy: 0.375000
+Test Loss: 1.931429147720337 || Testing Accuracy: 0.382812
+Test Loss: 2.131143093109131 || Testing Accuracy: 0.371324
+Test Loss: 1.764822244644165 || Testing Accuracy: 0.371528
+Test Loss: 2.327087879180908 || Testing Accuracy: 0.365132
+Test Loss: 2.093369245529175 || Testing Accuracy: 0.365625
+Test Loss: 1.7014786005020142 || Testing Accuracy: 0.372024
+Test Loss: 1.9226419925689697 || Testing Accuracy: 0.372159
+Test Loss: 2.045403003692627 || Testing Accuracy: 0.377717
+Test Loss: 1.8581256866455078 || Testing Accuracy: 0.382812
+Test Loss: 1.9077363014221191 || Testing Accuracy: 0.385000
+Test Loss: 2.063721179962158 || Testing Accuracy: 0.384615
+Test Loss: 2.4254860877990723 || Testing Accuracy: 0.381944
+Test Loss: 1.4372429847717285 || Testing Accuracy: 0.390625
+Test Loss: 2.2434184551239014 || Testing Accuracy: 0.385776
+Test Loss: 2.722625970840454 || Testing Accuracy: 0.379167
+Test Loss: 2.1721153259277344 || Testing Accuracy: 0.379032
+Test Loss: 2.788707733154297 || Testing Accuracy: 0.375000
+Test Loss: 2.8236312866210938 || Testing Accuracy: 0.367424
+Test Loss: 2.168611764907837 || Testing Accuracy: 0.362132
+Test Loss: 1.9132068157196045 || Testing Accuracy: 0.362500
+Test Loss: 2.4145712852478027 || Testing Accuracy: 0.357639
+Test Loss: 1.1728014945983887 || Testing Accuracy: 0.359862
+Total time: 2.72
