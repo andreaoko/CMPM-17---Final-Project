@@ -62,12 +62,17 @@ print('#' * (len(demo_pred_name) + 24))
 print(f'# Model predicts: {demo_pred_name} !!! #')
 print('#' * (len(demo_pred_name) + 24))
 print('\n')
+
+'''       Example output        '''
+# Plant Family Identifier
+# Andrea Okolo and Griffin Svec-Burdick
+# CMPM17 Winter 2026 Final Project
+
+# Input file: imagesOrganizedSplit/train/Cupressaceae/05738_Sequoia sempervirens.jpg
+# Using Model Saved_Model_For_Demo.pt
+
+#      Model thinking...
+
 ###################################
 # Model predicts: Oxalidaceae !!! #
-
 ###################################
-
-# at minimum the output should print a prediction, but if you are doing classification,
-# use Softmax to turn the output into percentages 
-# (see week 4 day 2 activity document on canvas)
-# also, try to convert the raw number output into understandable classes
