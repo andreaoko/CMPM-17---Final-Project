@@ -1,3 +1,5 @@
+'''Example file from Anthony'''
+
 import torch
 import torch.nn as nn
 

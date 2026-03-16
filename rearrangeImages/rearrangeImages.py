@@ -1,4 +1,8 @@
 '''
+Plant Family Identifier
+Andrea Okolo and Griffin Svec-Burdick
+CMPM17 Winter 2026 Final Project
+
 Script to rearrange images into the file structure requested, ignoring families with a low count
 
 We should each run this once, to make the corresponding image folder. Or, one of us could run it and then send the folder over google drive. 

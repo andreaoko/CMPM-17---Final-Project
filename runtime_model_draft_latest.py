@@ -1,3 +1,9 @@
+'''
+Plant Family Identifier Model
+Andrea Okolo and Griffin Svec-Burdick
+CMPM17 Winter 2026 Final Project
+'''
+
 from torch.utils.data import DataLoader, Dataset
 from torchvision.transforms import v2
 import torch

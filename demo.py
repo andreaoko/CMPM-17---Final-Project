@@ -1,3 +1,10 @@
+'''
+Plant Family Identifier Demo
+Andrea Okolo and Griffin Svec-Burdick
+CMPM17 Winter 2026 Final Project
+'''
+
+
 import torch
 from PIL import Image
 from torchvision.transforms import v2
