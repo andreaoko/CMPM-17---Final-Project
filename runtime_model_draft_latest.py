@@ -146,125 +146,127 @@ class ConvNet(nn.Module):
         output = self.fc2(X)
         return output
 
-model = ConvNet()                               
+if __name__ == '__main__': # Prevents the model from rerunning when importing to the demo file
 
-#Check output of the model
-for images, label in train_dataloader:
-    print(f'\nImage shape: {images.shape}')                  #print dimensions of input image shape
-    output_model = model(images)                                                                             
-    print(f'Output shape: {output_model.shape}')                                                                #print the output tensor of model shape
-    # print(output_model[0])                                                                                      #prints image shape for first image in batch
-    break
+    model = ConvNet()                               
 
-model.to(device) 
+    #Check output of the model
+    for images, label in train_dataloader:
+        print(f'\nImage shape: {images.shape}')                  #print dimensions of input image shape
+        output_model = model(images)                                                                             
+        print(f'Output shape: {output_model.shape}')                                                                #print the output tensor of model shape
+        # print(output_model[0])                                                                                      #prints image shape for first image in batch
+        break
 
-
-#Training, Validation and Testing Loop
-
-optimizer = torch.optim.Adam(model.parameters(), lr=0.001)                                                                  
-criterion = nn.CrossEntropyLoss().to(device)  
+    model.to(device) 
 
 
-training_loop_time = time.time()            #Calculate the time at the beginning of the training loop
+    #Training, Validation and Testing Loop
 
-#Training Loop
-for epoch in range(NUM_EPOCHS):
-    epoch_start_time = time.time()          #Calculate time at the beginning of each epoch
-    model.train()
-
-    train_correct_vals = 0
-    train_total_imgs = 0
-    train_accuracy = 0
-    train_total_loss = 0
-
-    v_correct_vals = 0
-    v_total_imgs = 0
-
-    for images, labels in train_dataloader:
-        images, labels = images.to(device), labels.to(device)   #moves the images and labels to the GPU
-
-        train_preds = model(images)                     #calculate model predictions
-        train_loss = criterion(train_preds, labels)     #compare predictions to the actual values and calculate using the previously defined loss function
-
-        _, tr_preds = torch.max(train_preds, dim=1)     #_ ignores the inital value dummy variable; tr_preds will predict the highest/most accurate class
-
-        train_correct_vals += torch.sum((tr_preds == labels)).item()       #Compare predictions to labels. If predictions are correct add to a total value                                      
-        train_total_imgs += labels.size(0)                                 #keep track of the images procressed
-
-        train_total_loss += train_loss.item()           #add up the total loss value
-
-        optimizer.zero_grad()       #reset slope calculations
-        train_loss.backward()       #calculates slopes  
-        optimizer.step()            #updates weights
-        
-    train_accuracy = train_correct_vals / train_total_imgs          #calcualte train accuracy by dividing total correct values over total images processed
-    avg_train_loss = train_total_loss / len(train_dataloader)       #caluclate average training loss by dividing total loss value over the total items in the train_dataloaders
-    
-    epoch_time = time.time() - epoch_start_time             #Calculate the time at the end of the epoch
-
-    print(f"Epoch: {epoch+1:03d}/{NUM_EPOCHS:03d} || Training Loss: {train_loss.item():.6f} || Avg Training Loss: {avg_train_loss:.6f} ||" 
-          f" Training Accuracy: {train_accuracy:.6f} || Runtime: {(epoch_time/60):.2f} mins")
-    model.eval()
-
-#Validation loop
-    with torch.no_grad():                                               #disables background gradient calculations; Using in validation loop helps speed up the model output
-        for images, labels in val_dataloader:
-            images, labels = images.to(device), labels.to(device)       #moves the images and labels to the GPU
-
-            val_preds = model(images)
-            val_loss = criterion(val_preds, labels)
-
-            __, v_preds = torch.max(val_preds, dim=1)
-                    
-            v_correct_vals += torch.sum((v_preds == labels)).item()                                                    
-            v_total_imgs += labels.size(0)        
+    optimizer = torch.optim.Adam(model.parameters(), lr=0.001)                                                                  
+    criterion = nn.CrossEntropyLoss().to(device)  
 
 
-print("\nTesting Phase")
+    training_loop_time = time.time()            #Calculate the time at the beginning of the training loop
 
-with torch.no_grad():
-    test_correct_vals = 0
-    test_total_imgs = 0
-
-    labels_for_confusion = []
-    preds_for_confusion = []
-
-    for images, labels in test_dataloader:
-        images, labels = images.to(device), labels.to(device)           #moves the images and labels to the GPU
-
-        test_preds = model(images)
-        test_loss = criterion(test_preds, labels)
-
-        __, tt_preds = torch.max(test_preds, dim=1)
-
-        test_correct_vals += torch.sum((tt_preds == labels)).item()
-        test_total_imgs += labels.size(0)
-
-        run.log({"Test Loss": test_loss})
-
-
-
-        preds_for_confusion.extend(tt_preds.cpu()) # Move to CPU and add to list of predictions
-        labels_for_confusion.extend(labels.cpu()) # Move to CPU and add to list of labels
-
-    test_accuracy = test_correct_vals / test_total_imgs
-    print(f"Test Loss: {test_loss.item()} || Testing Accuracy: {test_accuracy:.6f}")
-
+    #Training Loop
     for epoch in range(NUM_EPOCHS):
-        run.log({"Test Accuracy": test_accuracy})
+        epoch_start_time = time.time()          #Calculate time at the beginning of each epoch
+        model.train()
 
-    label_names = test_dataset.classes
-    
-    cm = confusion_matrix(labels_for_confusion, preds_for_confusion)
-    disp = ConfusionMatrixDisplay(confusion_matrix=cm, display_labels=label_names)
-    disp.plot()
-    plt.xticks(rotation = 'vertical')
-    plt.tight_layout() # make tick labels fit
-    plt.savefig(f'confusion_matrix/confusion_matrix_{NUM_EPOCHS:03d}epochs.png') #this will overwrite previous
+        train_correct_vals = 0
+        train_total_imgs = 0
+        train_accuracy = 0
+        train_total_loss = 0
 
-print(f"Total time: {((time.time() - training_loop_time)/60):.2f}")             #print total time for the whole training loop to process
+        v_correct_vals = 0
+        v_total_imgs = 0
 
-run.log({"train loss": train_loss, "test loss": test_loss, "train accuracy": train_accuracy})
+        for images, labels in train_dataloader:
+            images, labels = images.to(device), labels.to(device)   #moves the images and labels to the GPU
 
-# Save the model based on epoch number and current time
-torch.save(model.state_dict(), f"saved_models/final_save_{NUM_EPOCHS:03d}_epochs_{int(time.time())}.pt")             #Saves the model to a file called final_save.pt
+            train_preds = model(images)                     #calculate model predictions
+            train_loss = criterion(train_preds, labels)     #compare predictions to the actual values and calculate using the previously defined loss function
+
+            _, tr_preds = torch.max(train_preds, dim=1)     #_ ignores the inital value dummy variable; tr_preds will predict the highest/most accurate class
+
+            train_correct_vals += torch.sum((tr_preds == labels)).item()       #Compare predictions to labels. If predictions are correct add to a total value                                      
+            train_total_imgs += labels.size(0)                                 #keep track of the images procressed
+
+            train_total_loss += train_loss.item()           #add up the total loss value
+
+            optimizer.zero_grad()       #reset slope calculations
+            train_loss.backward()       #calculates slopes  
+            optimizer.step()            #updates weights
+            
+        train_accuracy = train_correct_vals / train_total_imgs          #calcualte train accuracy by dividing total correct values over total images processed
+        avg_train_loss = train_total_loss / len(train_dataloader)       #caluclate average training loss by dividing total loss value over the total items in the train_dataloaders
+        
+        epoch_time = time.time() - epoch_start_time             #Calculate the time at the end of the epoch
+
+        print(f"Epoch: {epoch+1:03d}/{NUM_EPOCHS:03d} || Training Loss: {train_loss.item():.6f} || Avg Training Loss: {avg_train_loss:.6f} ||" 
+            f" Training Accuracy: {train_accuracy:.6f} || Runtime: {(epoch_time/60):.2f} mins")
+        model.eval()
+
+    #Validation loop
+        with torch.no_grad():                                               #disables background gradient calculations; Using in validation loop helps speed up the model output
+            for images, labels in val_dataloader:
+                images, labels = images.to(device), labels.to(device)       #moves the images and labels to the GPU
+
+                val_preds = model(images)
+                val_loss = criterion(val_preds, labels)
+
+                __, v_preds = torch.max(val_preds, dim=1)
+                        
+                v_correct_vals += torch.sum((v_preds == labels)).item()                                                    
+                v_total_imgs += labels.size(0)        
+
+
+    print("\nTesting Phase")
+
+    with torch.no_grad():
+        test_correct_vals = 0
+        test_total_imgs = 0
+
+        labels_for_confusion = []
+        preds_for_confusion = []
+
+        for images, labels in test_dataloader:
+            images, labels = images.to(device), labels.to(device)           #moves the images and labels to the GPU
+
+            test_preds = model(images)
+            test_loss = criterion(test_preds, labels)
+
+            __, tt_preds = torch.max(test_preds, dim=1)
+
+            test_correct_vals += torch.sum((tt_preds == labels)).item()
+            test_total_imgs += labels.size(0)
+
+            run.log({"Test Loss": test_loss})
+
+
+
+            preds_for_confusion.extend(tt_preds.cpu()) # Move to CPU and add to list of predictions
+            labels_for_confusion.extend(labels.cpu()) # Move to CPU and add to list of labels
+
+        test_accuracy = test_correct_vals / test_total_imgs
+        print(f"Test Loss: {test_loss.item()} || Testing Accuracy: {test_accuracy:.6f}")
+
+        for epoch in range(NUM_EPOCHS):
+            run.log({"Test Accuracy": test_accuracy})
+
+        label_names = test_dataset.classes
+        
+        cm = confusion_matrix(labels_for_confusion, preds_for_confusion)
+        disp = ConfusionMatrixDisplay(confusion_matrix=cm, display_labels=label_names)
+        disp.plot()
+        plt.xticks(rotation = 'vertical')
+        plt.tight_layout() # make tick labels fit
+        plt.savefig(f'confusion_matrix/confusion_matrix_{NUM_EPOCHS:03d}epochs.png') #this will overwrite previous
+
+    print(f"Total time: {((time.time() - training_loop_time)/60):.2f}")             #print total time for the whole training loop to process
+
+    run.log({"train loss": train_loss, "test loss": test_loss, "train accuracy": train_accuracy})
+
+    # Save the model based on epoch number and current time
+    torch.save(model.state_dict(), f"saved_models/final_save_{NUM_EPOCHS:03d}_epochs_{int(time.time())}.pt")             #Saves the model to a file called final_save.pt
