@@ -1,0 +1,19 @@
+CUDA is available. Using GPU.
+
+Train inputs: torch.Size([64, 3, 224, 224])
+Train outputs: torch.Size([64])
+
+Test inputs: torch.Size([16, 3, 224, 224])
+Test outputs: torch.Size([16])
+
+Validation inputs: torch.Size([16, 3, 224, 224])
+Validation outputs: torch.Size([16])
+
+Image shape: torch.Size([64, 3, 224, 224])
+Output shape: torch.Size([64, 25])
+Epoch: 001/100 || Training Loss: 2.914262 || Avg Training Loss: 3.116377 || Training Accuracy: 0.144307 || Runtime: 0.13 mins
+Traceback (most recent call last):
+  File "/workspace/repo/CMPM-17---Final-Project/Plant_Classifier_Final_Model.py", line 197, in <module>
+    images, labels = images.to(device), labels.to(device)   #moves the images and labels to the GPU
+                     ^^^^^^^^^^^^^^^^^
+KeyboardInterrupt
