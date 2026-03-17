@@ -209,7 +209,6 @@ if __name__ == '__main__': # Prevents the model from rerunning when importing to
             train_loss.backward()       #calculates slopes  
             optimizer.step()            #updates weights
             
-            run.log({"Training Loss": train_loss})     #return graph of training loss
 
 
         train_accuracy = train_correct_vals / train_total_imgs          #calcualte train accuracy by dividing total correct values over total images processed
@@ -235,8 +234,6 @@ if __name__ == '__main__': # Prevents the model from rerunning when importing to
                 v_correct_vals += torch.sum((v_preds == labels)).item()                                                    
                 v_total_imgs += labels.size(0)    
 
-                run.log({"Validation Loss": val_loss})    #return graph of validation loss
-
 
     print("\nTesting Phase")
 
@@ -258,9 +255,6 @@ if __name__ == '__main__': # Prevents the model from rerunning when importing to
             test_correct_vals += torch.sum((tt_preds == labels)).item()
             test_total_imgs += labels.size(0)
 
-            run.log({"Test Loss": test_loss})       #return Test loss graph
-
-
             preds_list.extend(tt_preds.cpu()) # Move to CPU and add to list of predictions
             labels_list.extend(labels.cpu()) # Move to CPU and add to list of labels
 
@@ -269,14 +263,6 @@ if __name__ == '__main__': # Prevents the model from rerunning when importing to
 
         f1_macro = f1_score(labels_list, preds_list, average="macro")      #compute f1 score
 
-
-
-    for epoch in range(NUM_EPOCHS):
-        run.log({"Train Loss": train_loss})
-        run.log({"Validation Loss": val_loss})
-        run.log({"Test Loss": test_loss})   #works on runpod
-        run.log({"Test Accuracy": test_accuracy})
-        run.log({"Test F1 Score - Macro": f1_macro})
 
     label_names = test_dataset.classes
         
@@ -289,8 +275,6 @@ if __name__ == '__main__': # Prevents the model from rerunning when importing to
                                          
 
     print(f"Total time: {((time.time() - training_loop_time)/60):.2f}")             #print total time for the whole training loop to process
-
-    run.log({"train loss": train_loss, "test loss": test_loss, "train accuracy": train_accuracy})
 
     # Save the model based on epoch number and current time
     torch.save(model.state_dict(), f"saved_models/final_save_{NUM_EPOCHS:03d}_epochs_{int(time.time())}.pt")             #Saves the model to a file called final_save.pt
