@@ -29,13 +29,13 @@ from sklearn.metrics import confusion_matrix, ConfusionMatrixDisplay
 import matplotlib.pyplot as plt
 
 # Set parameters
-NUM_EPOCHS = 40
+NUM_EPOCHS = 100
 learn_rate = 0.0002
 
 df = pd.read_csv("DownloadedImageData_NewPaths.csv")             #load data into dataframe
 
 if __name__ == '__main__': #skip these for demo
-    run = wandb.init(project="Final Plant Family Models", name="Test E=40 LR=0.0002")
+    run = wandb.init(project="Final Plant Family Models", name="Test E=100 LR=0.0002")
 
     #Checking for device automatically
     if torch.cuda.is_available():
