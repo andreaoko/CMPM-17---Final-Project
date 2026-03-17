@@ -1,0 +1,18 @@
+CUDA is available. Using GPU.
+
+Train inputs: torch.Size([64, 3, 224, 224])
+Train outputs: torch.Size([64])
+
+Test inputs: torch.Size([16, 3, 224, 224])
+Test outputs: torch.Size([16])
+
+Validation inputs: torch.Size([16, 3, 224, 224])
+Validation outputs: torch.Size([16])
+
+Image shape: torch.Size([64, 3, 224, 224])
+Output shape: torch.Size([64, 25])
+Traceback (most recent call last):
+  File "/workspace/repo/CMPM-17---Final-Project/model_graph_test.py", line 221, in <module>
+    f" Training Accuracy: {train_accuracy:.6f} || Runtime: {(epoch_time/60):.2f} mins")
+                                                             ^^^^^^^^^^
+NameError: name 'epoch_time' is not defined

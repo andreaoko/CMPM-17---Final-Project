@@ -1,0 +1,103 @@
+CUDA is available. Using GPU.
+
+Train inputs: torch.Size([64, 3, 224, 224])
+Train outputs: torch.Size([64])
+
+Test inputs: torch.Size([16, 3, 224, 224])
+Test outputs: torch.Size([16])
+
+Validation inputs: torch.Size([16, 3, 224, 224])
+Validation outputs: torch.Size([16])
+
+Image shape: torch.Size([64, 3, 224, 224])
+Output shape: torch.Size([64, 25])
+Epoch: 001/030 || Training Loss: 2.916963 || Avg Training Loss: 4.797751 || Training Accuracy: 0.087937 ||
+
+Testing Phase
+Test Loss: 3.5781915187835693 || Testing Accuracy: 0.122837
+
+Testing Phase
+Test Loss: 4.616575241088867 || Testing Accuracy: 0.122837
+Epoch: 002/030 || Training Loss: 2.728735 || Avg Training Loss: 2.932726 || Training Accuracy: 0.144307 ||
+
+Testing Phase
+Test Loss: 2.612159490585327 || Testing Accuracy: 0.152249
+
+Testing Phase
+Test Loss: 2.3618829250335693 || Testing Accuracy: 0.152249
+Epoch: 003/030 || Training Loss: 2.815442 || Avg Training Loss: 2.807751 || Training Accuracy: 0.167756 ||
+
+Testing Phase
+Test Loss: 2.727407932281494 || Testing Accuracy: 0.179931
+
+Testing Phase
+Test Loss: 2.1311464309692383 || Testing Accuracy: 0.179931
+Epoch: 004/030 || Training Loss: 2.896248 || Avg Training Loss: 2.673744 || Training Accuracy: 0.199549 ||
+
+Testing Phase
+Test Loss: 2.3136401176452637 || Testing Accuracy: 0.192042
+
+Testing Phase
+Test Loss: 1.8638970851898193 || Testing Accuracy: 0.192042
+Epoch: 005/030 || Training Loss: 2.741122 || Avg Training Loss: 2.553482 || Training Accuracy: 0.225930 ||
+
+Testing Phase
+Test Loss: 2.313014507293701 || Testing Accuracy: 0.221453
+
+Testing Phase
+Test Loss: 2.199906349182129 || Testing Accuracy: 0.221453
+Epoch: 006/030 || Training Loss: 2.453008 || Avg Training Loss: 2.446604 || Training Accuracy: 0.250958 ||
+
+Testing Phase
+Test Loss: 2.9575252532958984 || Testing Accuracy: 0.212803
+
+Testing Phase
+Test Loss: 2.6737899780273438 || Testing Accuracy: 0.212803
+Epoch: 007/030 || Training Loss: 2.292533 || Avg Training Loss: 2.394923 || Training Accuracy: 0.264036 ||
+
+Testing Phase
+Test Loss: 2.645777702331543 || Testing Accuracy: 0.295848
+
+Testing Phase
+Test Loss: 1.3578816652297974 || Testing Accuracy: 0.295848
+Epoch: 008/030 || Training Loss: 2.497247 || Avg Training Loss: 2.355284 || Training Accuracy: 0.277339 ||
+
+Testing Phase
+Test Loss: 2.995814085006714 || Testing Accuracy: 0.261246
+
+Testing Phase
+Test Loss: 2.4335150718688965 || Testing Accuracy: 0.261246
+Epoch: 009/030 || Training Loss: 2.226891 || Avg Training Loss: 2.255239 || Training Accuracy: 0.295152 ||
+
+Testing Phase
+Test Loss: 3.4993221759796143 || Testing Accuracy: 0.280277
+
+Testing Phase
+Test Loss: 0.6147708296775818 || Testing Accuracy: 0.280277
+Epoch: 010/030 || Training Loss: 2.115638 || Avg Training Loss: 2.229018 || Training Accuracy: 0.303946 ||
+Traceback (most recent call last):
+  File "/workspace/repo/CMPM-17---Final-Project/model_graph_test.py", line 229, in <module>
+    val_preds = model(images)
+                ^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py", line 1784, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/repo/CMPM-17---Final-Project/model_graph_test.py", line 151, in forward
+    X = self.pool(self.bN3(self.relu(self.conv3(X))))
+                                     ^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py", line 1784, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/conv.py", line 548, in forward
+    return self._conv_forward(input, self.weight, self.bias)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/conv.py", line 543, in _conv_forward
+    return F.conv2d(
+           ^^^^^^^^^
+KeyboardInterrupt
