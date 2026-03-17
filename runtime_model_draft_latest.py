@@ -274,8 +274,7 @@ if __name__ == '__main__': # Prevents the model from rerunning when importing to
     for epoch in range(NUM_EPOCHS):
         run.log({"Train Loss": train_loss})
         run.log({"Validation Loss": val_loss})
-        run.log({"Test Loss": test_loss})
-        run.log({"Test Loss": test_loss})
+        run.log({"Test Loss": test_loss})   #works on runpod
         run.log({"Test Accuracy": test_accuracy})
         run.log({"Test F1 Score - Macro": f1_macro})
 
