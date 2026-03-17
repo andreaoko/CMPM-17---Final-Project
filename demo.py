@@ -13,10 +13,14 @@ import time # for dramatic effect
 from runtime_model_draft_latest import ConvNet, test_dataset
 # REPLACE "trainModelFile" WITH THE NAME OF THE FILE WITH THE MODEL CLASS
 
-use_image = 1 # Change this to use a different image
+use_image = 6 # Change this to use a different image
 img_dict = {
     1 : 'imagesOrganizedSplit/train/Cupressaceae/05738_Sequoia sempervirens.jpg',
-    2 : 'imagesOrganizedSplit/train/Oxalidaceae/01166_Oxalis pes-caprae.jpg'
+    2 : 'imagesOrganizedSplit/train/Oxalidaceae/01166_Oxalis pes-caprae.jpg',
+    3 : 'imagesOrganized/Montiaceae/00389_Claytonia perfoliata.jpg',
+    4 : 'imagesOrganized/Anacardiaceae/00075_Toxicodendron diversilobum.jpg',
+    5 : 'imagesOrganizedSplit/test/Anacardiaceae/04353_Toxicodendron diversilobum.jpg',# Incorrect ID as asteraceae, no asteraceae present
+    6 : 'imagesOrganizedSplit/test/Anacardiaceae/05113_Toxicodendron diversilobum.jpg' # Incorrect ID as Primulaceae
 }
 model_to_use = "Saved_Model_For_Demo.pt"
 
@@ -43,8 +47,10 @@ transforms = v2.Compose([
 
 # load the file "image.png", change this to your file name
 img = Image.open(img_dict[use_image]).convert('RGB')
+img.show()
 # apply transformations (resizing) to the image
 img = transforms(img)
+
 
 # print(img.shape) # check image shape is correct, if it isn't, unsqueeze
 img = torch.unsqueeze(img, 0)
