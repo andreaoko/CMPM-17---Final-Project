@@ -265,8 +265,17 @@ if __name__ == '__main__': # Prevents the model from rerunning when importing to
         test_accuracy = test_correct_vals / test_total_imgs
         print(f"Test Loss: {test_loss.item()} || Testing Accuracy: {test_accuracy:.6f}")
 
-        for epoch in range(NUM_EPOCHS):
-            run.log({"Test Accuracy": test_accuracy})       #return Test Accuracy graph
+        f1_macro = f1_score(labels_list, preds_list, average="macro")      #compute f1 score
+
+
+
+    for epoch in range(NUM_EPOCHS):
+        run({"Train Loss": train_loss},
+            {"Validation Loss": val_loss},
+            {"Test Loss": test_loss},
+            {"Test Accuracy": test_accuracy},
+            {"Test F1 Score - Macro": f1_macro}
+            )
 
         label_names = test_dataset.classes
         
@@ -276,11 +285,7 @@ if __name__ == '__main__': # Prevents the model from rerunning when importing to
         plt.xticks(rotation = 'vertical')
         plt.tight_layout() # make tick labels fit
         plt.savefig(f'confusion_matrix/confusion_matrix_{NUM_EPOCHS:03d}epochs.png') #this will overwrite previous
-
-        f1_macro =f1_score(labels_list, preds_list, average="macro")      #compute f1 score
-        run.log({"Test F1 Score - Macro": f1_macro})           #Test F1 Score - Macro                                            
-
-
+                                         
 
     print(f"Total time: {((time.time() - training_loop_time)/60):.2f}")             #print total time for the whole training loop to process
 
