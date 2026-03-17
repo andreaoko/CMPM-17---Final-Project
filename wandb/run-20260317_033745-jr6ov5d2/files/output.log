@@ -1,0 +1,57 @@
+CUDA is available. Using GPU.
+
+Train inputs: torch.Size([64, 3, 224, 224])
+Train outputs: torch.Size([64])
+
+Test inputs: torch.Size([16, 3, 224, 224])
+Test outputs: torch.Size([16])
+
+Validation inputs: torch.Size([16, 3, 224, 224])
+Validation outputs: torch.Size([16])
+
+Image shape: torch.Size([64, 3, 224, 224])
+Output shape: torch.Size([64, 25])
+Epoch: 001/003 || Training Loss: 2.988551 || Avg Training Loss: 4.351446 || Training Accuracy: 0.101015 || Runtime: 0.15 mins
+Epoch: 002/003 || Training Loss: 2.682860 || Avg Training Loss: 2.851292 || Training Accuracy: 0.155130 || Runtime: 0.14 mins
+Epoch: 003/003 || Training Loss: 2.756426 || Avg Training Loss: 2.713438 || Training Accuracy: 0.177001 || Runtime: 0.13 mins
+
+Testing Phase
+2.597993
+2.479591
+2.439608
+2.636778
+2.916989
+2.708980
+2.804111
+2.288770
+2.448640
+2.486548
+2.489950
+2.432498
+2.501027
+2.129658
+2.806653
+2.851367
+2.833123
+2.370231
+2.782055
+2.414352
+2.899933
+2.723733
+2.805850
+3.073873
+2.191805
+2.534976
+2.151617
+2.065242
+2.850248
+2.459961
+2.796650
+2.668491
+2.934050
+2.444443
+2.359140
+2.317240
+2.387150
+Test Loss: 2.3871495723724365 || Testing Accuracy: 0.219723
+Total time: 0.54

@@ -1,0 +1,29 @@
+CUDA is available. Using GPU.
+
+Train inputs: torch.Size([64, 3, 224, 224])
+Train outputs: torch.Size([64])
+
+Test inputs: torch.Size([16, 3, 224, 224])
+Test outputs: torch.Size([16])
+
+Validation inputs: torch.Size([16, 3, 224, 224])
+Validation outputs: torch.Size([16])
+
+Image shape: torch.Size([64, 3, 224, 224])
+Output shape: torch.Size([64, 25])
+Epoch: 001/020 || Training Loss: 2.648564 || Avg Training Loss: 2.828371 || Training Accuracy: 0.182187 || Runtime: 0.13 mins
+Epoch: 002/020 || Training Loss: 2.619658 || Avg Training Loss: 2.439112 || Training Accuracy: 0.267644 || Runtime: 0.13 mins
+Epoch: 003/020 || Training Loss: 2.434441 || Avg Training Loss: 2.238004 || Training Accuracy: 0.327847 || Runtime: 0.13 mins
+Epoch: 004/020 || Training Loss: 2.660856 || Avg Training Loss: 2.082043 || Training Accuracy: 0.364825 || Runtime: 0.13 mins
+Epoch: 005/020 || Training Loss: 1.783769 || Avg Training Loss: 1.912848 || Training Accuracy: 0.423901 || Runtime: 0.13 mins
+Epoch: 006/020 || Training Loss: 1.951412 || Avg Training Loss: 1.771220 || Training Accuracy: 0.460654 || Runtime: 0.13 mins
+Epoch: 007/020 || Training Loss: 1.908316 || Avg Training Loss: 1.661690 || Training Accuracy: 0.484780 || Runtime: 0.13 mins
+Epoch: 008/020 || Training Loss: 1.373425 || Avg Training Loss: 1.540707 || Training Accuracy: 0.523788 || Runtime: 0.13 mins
+Epoch: 009/020 || Training Loss: 1.948970 || Avg Training Loss: 1.462380 || Training Accuracy: 0.558737 || Runtime: 0.13 mins
+Epoch: 010/020 || Training Loss: 1.091835 || Avg Training Loss: 1.347488 || Training Accuracy: 0.592785 || Runtime: 0.13 mins
+Epoch: 011/020 || Training Loss: 1.419105 || Avg Training Loss: 1.214127 || Training Accuracy: 0.633596 || Runtime: 0.13 mins
+Epoch: 012/020 || Training Loss: 1.499830 || Avg Training Loss: 1.135909 || Training Accuracy: 0.653664 || Runtime: 0.13 mins
+Epoch: 013/020 || Training Loss: 0.812298 || Avg Training Loss: 1.069134 || Training Accuracy: 0.669448 || Runtime: 0.13 mins
+Epoch: 014/020 || Training Loss: 0.974640 || Avg Training Loss: 0.992015 || Training Accuracy: 0.698083 || Runtime: 0.13 mins
+Epoch: 015/020 || Training Loss: 0.797454 || Avg Training Loss: 0.911255 || Training Accuracy: 0.725592 || Runtime: 0.13 mins
+Epoch: 016/020 || Training Loss: 1.086738 || Avg Training Loss: 0.822347 || Training Accuracy: 0.753326 || Runtime: 0.13 mins
