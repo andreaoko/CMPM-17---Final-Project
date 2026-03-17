@@ -21,7 +21,8 @@ import os
 from torchvision.datasets import ImageFolder
 import time
 import wandb
-from sklearn.metrics import f1_score
+from sklearn.metrics import f1_score                    #When running on GPU use this to install sklearn:  pip install -U scikit-learn
+
 
 #For confusion matrix
 from sklearn.metrics import confusion_matrix, ConfusionMatrixDisplay

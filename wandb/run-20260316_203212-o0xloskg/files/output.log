@@ -1,0 +1,59 @@
+CUDA is available. Using GPU.
+
+Train inputs: torch.Size([64, 3, 224, 224])
+Train outputs: torch.Size([64])
+
+Test inputs: torch.Size([16, 3, 224, 224])
+Test outputs: torch.Size([16])
+
+Validation inputs: torch.Size([16, 3, 224, 224])
+Validation outputs: torch.Size([16])
+
+Image shape: torch.Size([64, 3, 224, 224])
+Output shape: torch.Size([64, 25])
+Epoch: 001/030 || Training Loss: 3.090742 || Avg Training Loss: 4.576652 || Training Accuracy: 0.112514 || Runtime: 0.13 mins
+Epoch: 002/030 || Training Loss: 2.737784 || Avg Training Loss: 2.840069 || Training Accuracy: 0.161443 || Runtime: 0.13 mins
+Traceback (most recent call last):
+  File "/workspace/repo/CMPM-17---Final-Project/runtime_model_draft_latest.py", line 211, in <module>
+    run.log({"Training Loss": train_loss})     #return graph of training loss
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/wandb/sdk/wandb_run.py", line 399, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/wandb/sdk/wandb_run.py", line 457, in wrapper_fn
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/wandb/sdk/wandb_run.py", line 444, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/wandb/sdk/wandb_run.py", line 2038, in log
+    self._log(data=data, step=step, commit=commit)
+  File "/usr/local/lib/python3.12/dist-packages/wandb/sdk/wandb_run.py", line 1749, in _log
+    self._partial_history_callback(data, step, commit)
+  File "/usr/local/lib/python3.12/dist-packages/wandb/sdk/wandb_run.py", line 399, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/wandb/sdk/wandb_run.py", line 1580, in _partial_history_callback
+    self._backend.interface.publish_partial_history(
+  File "/usr/local/lib/python3.12/dist-packages/wandb/sdk/interface/interface.py", line 702, in publish_partial_history
+    item.value_json = json_dumps_safer_history(v)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/wandb/util.py", line 861, in json_dumps_safer_history
+    return dumps(obj, cls=WandBHistoryJSONEncoder, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/json/__init__.py", line 238, in dumps
+    **kw).encode(obj)
+          ^^^^^^^^^^^
+  File "/usr/lib/python3.12/json/encoder.py", line 200, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/json/encoder.py", line 258, in iterencode
+    return _iterencode(o, 0)
+           ^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/wandb/util.py", line 820, in default
+    obj, converted = json_friendly(obj)
+                     ^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/wandb/util.py", line 632, in json_friendly
+    return obj.item(), True
+           ^^^^^^^^^^
+KeyboardInterrupt
