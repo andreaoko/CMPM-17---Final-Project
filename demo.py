@@ -13,7 +13,7 @@ import time # for dramatic effect
 from runtime_model_draft_latest import ConvNet, test_dataset
 # REPLACE "trainModelFile" WITH THE NAME OF THE FILE WITH THE MODEL CLASS
 
-use_image = 6 # Change this to use a different image
+use_image = 2 # Change this to use a different image
 img_dict = {
     1 : 'imagesOrganizedSplit/train/Cupressaceae/05738_Sequoia sempervirens.jpg',
     2 : 'imagesOrganizedSplit/train/Oxalidaceae/01166_Oxalis pes-caprae.jpg',
