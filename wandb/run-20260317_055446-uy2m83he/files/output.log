@@ -1,0 +1,37 @@
+CUDA is available. Using GPU.
+
+Train inputs: torch.Size([64, 3, 224, 224])
+Train outputs: torch.Size([64])
+
+Test inputs: torch.Size([16, 3, 224, 224])
+Test outputs: torch.Size([16])
+
+Validation inputs: torch.Size([16, 3, 224, 224])
+Validation outputs: torch.Size([16])
+
+Image shape: torch.Size([64, 3, 224, 224])
+Output shape: torch.Size([64, 25])
+Epoch: 001/020 || Training Loss: 3.029351 || Avg Training Loss: 2.945243 || Training Accuracy: 0.147012 || Runtime: 0.13 mins
+Epoch: 002/020 || Training Loss: 2.328183 || Avg Training Loss: 2.581889 || Training Accuracy: 0.235400 || Runtime: 0.12 mins
+Epoch: 003/020 || Training Loss: 2.168943 || Avg Training Loss: 2.392124 || Training Accuracy: 0.277339 || Runtime: 0.13 mins
+Epoch: 004/020 || Training Loss: 2.110454 || Avg Training Loss: 2.253882 || Training Accuracy: 0.315220 || Runtime: 0.13 mins
+Epoch: 005/020 || Training Loss: 1.863169 || Avg Training Loss: 2.129387 || Training Accuracy: 0.359188 || Runtime: 0.13 mins
+Epoch: 006/020 || Training Loss: 1.959593 || Avg Training Loss: 2.037594 || Training Accuracy: 0.382638 || Runtime: 0.13 mins
+Epoch: 007/020 || Training Loss: 2.969020 || Avg Training Loss: 1.948790 || Training Accuracy: 0.407441 || Runtime: 0.12 mins
+Epoch: 008/020 || Training Loss: 1.927658 || Avg Training Loss: 1.852415 || Training Accuracy: 0.439684 || Runtime: 0.13 mins
+Epoch: 009/020 || Training Loss: 2.453931 || Avg Training Loss: 1.763561 || Training Accuracy: 0.464262 || Runtime: 0.12 mins
+Epoch: 010/020 || Training Loss: 2.003059 || Avg Training Loss: 1.686203 || Training Accuracy: 0.494701 || Runtime: 0.13 mins
+Epoch: 011/020 || Training Loss: 1.426778 || Avg Training Loss: 1.605763 || Training Accuracy: 0.520406 || Runtime: 0.12 mins
+Epoch: 012/020 || Training Loss: 1.481841 || Avg Training Loss: 1.537362 || Training Accuracy: 0.537768 || Runtime: 0.13 mins
+Epoch: 013/020 || Training Loss: 1.152287 || Avg Training Loss: 1.474552 || Training Accuracy: 0.558286 || Runtime: 0.13 mins
+Epoch: 014/020 || Training Loss: 1.503612 || Avg Training Loss: 1.404359 || Training Accuracy: 0.585795 || Runtime: 0.13 mins
+Epoch: 015/020 || Training Loss: 1.656334 || Avg Training Loss: 1.344866 || Training Accuracy: 0.603382 || Runtime: 0.13 mins
+Epoch: 016/020 || Training Loss: 1.304803 || Avg Training Loss: 1.288262 || Training Accuracy: 0.615107 || Runtime: 0.13 mins
+Epoch: 017/020 || Training Loss: 1.350206 || Avg Training Loss: 1.205838 || Training Accuracy: 0.644870 || Runtime: 0.13 mins
+Epoch: 018/020 || Training Loss: 1.302269 || Avg Training Loss: 1.187711 || Training Accuracy: 0.649831 || Runtime: 0.13 mins
+Epoch: 019/020 || Training Loss: 1.099145 || Avg Training Loss: 1.105421 || Training Accuracy: 0.676437 || Runtime: 0.12 mins
+Epoch: 020/020 || Training Loss: 1.229200 || Avg Training Loss: 1.105897 || Training Accuracy: 0.668771 || Runtime: 0.13 mins
+
+Testing Phase
+Test Loss: 0.002084811218082905 || Testing Accuracy: 0.453287
+Total time: 2.97 minutes

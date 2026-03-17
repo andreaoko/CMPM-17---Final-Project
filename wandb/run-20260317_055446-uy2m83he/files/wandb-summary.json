@@ -1,0 +1,1 @@
+{"Train Loss":1.229200005531311,"Training Accuracy":0.6687711386696731,"_runtime":196,"Test F1 Score - Macro":0.418296471619702,"Test Accuracy":0.4532871972318339,"_wandb":{"runtime":196},"Epoch":20,"_step":134,"Test Loss":0.002084811218082905,"Validation Loss":2.0356156826019287,"_timestamp":1.773727088917562e+09}

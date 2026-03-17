@@ -1,0 +1,117 @@
+CUDA is available. Using GPU.
+
+Train inputs: torch.Size([64, 3, 224, 224])
+Train outputs: torch.Size([64])
+
+Test inputs: torch.Size([16, 3, 224, 224])
+Test outputs: torch.Size([16])
+
+Validation inputs: torch.Size([16, 3, 224, 224])
+Validation outputs: torch.Size([16])
+
+Image shape: torch.Size([64, 3, 224, 224])
+Output shape: torch.Size([64, 25])
+Epoch: 001/100 || Training Loss: 2.320645 || Avg Training Loss: 3.081305 || Training Accuracy: 0.143405 || Runtime: 0.15 mins
+Epoch: 002/100 || Training Loss: 1.929358 || Avg Training Loss: 2.528117 || Training Accuracy: 0.243743 || Runtime: 0.14 mins
+Epoch: 003/100 || Training Loss: 2.462547 || Avg Training Loss: 2.255271 || Training Accuracy: 0.314769 || Runtime: 0.14 mins
+Epoch: 004/100 || Training Loss: 1.531893 || Avg Training Loss: 2.028115 || Training Accuracy: 0.376776 || Runtime: 0.13 mins
+Epoch: 005/100 || Training Loss: 1.427321 || Avg Training Loss: 1.869501 || Training Accuracy: 0.431116 || Runtime: 0.13 mins
+Epoch: 006/100 || Training Loss: 2.248792 || Avg Training Loss: 1.733773 || Training Accuracy: 0.455919 || Runtime: 0.14 mins
+Epoch: 007/100 || Training Loss: 1.981587 || Avg Training Loss: 1.625991 || Training Accuracy: 0.496731 || Runtime: 0.14 mins
+Epoch: 008/100 || Training Loss: 1.329293 || Avg Training Loss: 1.509527 || Training Accuracy: 0.526043 || Runtime: 0.14 mins
+Epoch: 009/100 || Training Loss: 1.792717 || Avg Training Loss: 1.427754 || Training Accuracy: 0.554679 || Runtime: 0.13 mins
+Epoch: 010/100 || Training Loss: 1.121061 || Avg Training Loss: 1.308193 || Training Accuracy: 0.583991 || Runtime: 0.14 mins
+Epoch: 011/100 || Training Loss: 1.111292 || Avg Training Loss: 1.226735 || Training Accuracy: 0.617813 || Runtime: 0.14 mins
+Epoch: 012/100 || Training Loss: 1.200213 || Avg Training Loss: 1.128518 || Training Accuracy: 0.650958 || Runtime: 0.14 mins
+Epoch: 013/100 || Training Loss: 1.149531 || Avg Training Loss: 1.040609 || Training Accuracy: 0.670349 || Runtime: 0.14 mins
+Epoch: 014/100 || Training Loss: 1.402966 || Avg Training Loss: 0.952005 || Training Accuracy: 0.710034 || Runtime: 0.14 mins
+Epoch: 015/100 || Training Loss: 0.765732 || Avg Training Loss: 0.864351 || Training Accuracy: 0.722435 || Runtime: 0.13 mins
+Epoch: 016/100 || Training Loss: 1.118389 || Avg Training Loss: 0.841951 || Training Accuracy: 0.735062 || Runtime: 0.13 mins
+Epoch: 017/100 || Training Loss: 0.735466 || Avg Training Loss: 0.734441 || Training Accuracy: 0.767306 || Runtime: 0.14 mins
+Epoch: 018/100 || Training Loss: 1.353660 || Avg Training Loss: 0.716337 || Training Accuracy: 0.778129 || Runtime: 0.13 mins
+Epoch: 019/100 || Training Loss: 0.979261 || Avg Training Loss: 0.654581 || Training Accuracy: 0.796843 || Runtime: 0.14 mins
+Epoch: 020/100 || Training Loss: 1.147514 || Avg Training Loss: 0.605367 || Training Accuracy: 0.813980 || Runtime: 0.13 mins
+Epoch: 021/100 || Training Loss: 0.715386 || Avg Training Loss: 0.555693 || Training Accuracy: 0.822322 || Runtime: 0.14 mins
+Epoch: 022/100 || Training Loss: 0.410362 || Avg Training Loss: 0.510386 || Training Accuracy: 0.844645 || Runtime: 0.14 mins
+Epoch: 023/100 || Training Loss: 0.808347 || Avg Training Loss: 0.476551 || Training Accuracy: 0.856595 || Runtime: 0.14 mins
+Epoch: 024/100 || Training Loss: 0.552650 || Avg Training Loss: 0.450386 || Training Accuracy: 0.860428 || Runtime: 0.14 mins
+Epoch: 025/100 || Training Loss: 0.256028 || Avg Training Loss: 0.396166 || Training Accuracy: 0.876663 || Runtime: 0.13 mins
+Epoch: 026/100 || Training Loss: 0.358266 || Avg Training Loss: 0.379466 || Training Accuracy: 0.879594 || Runtime: 0.13 mins
+Epoch: 027/100 || Training Loss: 0.455710 || Avg Training Loss: 0.388243 || Training Accuracy: 0.878467 || Runtime: 0.14 mins
+Epoch: 028/100 || Training Loss: 0.386507 || Avg Training Loss: 0.354655 || Training Accuracy: 0.883878 || Runtime: 0.14 mins
+Epoch: 029/100 || Training Loss: 0.408663 || Avg Training Loss: 0.308100 || Training Accuracy: 0.906426 || Runtime: 0.13 mins
+Epoch: 030/100 || Training Loss: 0.271119 || Avg Training Loss: 0.290942 || Training Accuracy: 0.909357 || Runtime: 0.14 mins
+Epoch: 031/100 || Training Loss: 0.148058 || Avg Training Loss: 0.301601 || Training Accuracy: 0.900564 || Runtime: 0.14 mins
+Epoch: 032/100 || Training Loss: 0.106176 || Avg Training Loss: 0.292715 || Training Accuracy: 0.908230 || Runtime: 0.14 mins
+Epoch: 033/100 || Training Loss: 0.474467 || Avg Training Loss: 0.285348 || Training Accuracy: 0.910710 || Runtime: 0.13 mins
+Epoch: 034/100 || Training Loss: 0.179384 || Avg Training Loss: 0.264313 || Training Accuracy: 0.912965 || Runtime: 0.14 mins
+Epoch: 035/100 || Training Loss: 0.324398 || Avg Training Loss: 0.263178 || Training Accuracy: 0.916798 || Runtime: 0.13 mins
+Epoch: 036/100 || Training Loss: 0.294901 || Avg Training Loss: 0.245377 || Training Accuracy: 0.923337 || Runtime: 0.14 mins
+Epoch: 037/100 || Training Loss: 0.321849 || Avg Training Loss: 0.218792 || Training Accuracy: 0.932582 || Runtime: 0.14 mins
+Epoch: 038/100 || Training Loss: 0.263367 || Avg Training Loss: 0.227132 || Training Accuracy: 0.929876 || Runtime: 0.14 mins
+Epoch: 039/100 || Training Loss: 0.252632 || Avg Training Loss: 0.217239 || Training Accuracy: 0.934837 || Runtime: 0.14 mins
+Epoch: 040/100 || Training Loss: 0.612524 || Avg Training Loss: 0.213153 || Training Accuracy: 0.936415 || Runtime: 0.14 mins
+Epoch: 041/100 || Training Loss: 0.171562 || Avg Training Loss: 0.216501 || Training Accuracy: 0.933935 || Runtime: 0.13 mins
+Epoch: 042/100 || Training Loss: 0.455125 || Avg Training Loss: 0.212798 || Training Accuracy: 0.934160 || Runtime: 0.14 mins
+Epoch: 043/100 || Training Loss: 0.468292 || Avg Training Loss: 0.193936 || Training Accuracy: 0.940248 || Runtime: 0.14 mins
+Epoch: 044/100 || Training Loss: 0.138990 || Avg Training Loss: 0.192288 || Training Accuracy: 0.935062 || Runtime: 0.14 mins
+Epoch: 045/100 || Training Loss: 0.647396 || Avg Training Loss: 0.190648 || Training Accuracy: 0.942052 || Runtime: 0.14 mins
+Epoch: 046/100 || Training Loss: 0.155995 || Avg Training Loss: 0.181135 || Training Accuracy: 0.942503 || Runtime: 0.13 mins
+Epoch: 047/100 || Training Loss: 0.509464 || Avg Training Loss: 0.154581 || Training Accuracy: 0.951522 || Runtime: 0.14 mins
+Epoch: 048/100 || Training Loss: 0.167837 || Avg Training Loss: 0.183456 || Training Accuracy: 0.944081 || Runtime: 0.13 mins
+Epoch: 049/100 || Training Loss: 0.209662 || Avg Training Loss: 0.167076 || Training Accuracy: 0.945885 || Runtime: 0.13 mins
+Epoch: 050/100 || Training Loss: 0.320924 || Avg Training Loss: 0.158171 || Training Accuracy: 0.953551 || Runtime: 0.14 mins
+Epoch: 051/100 || Training Loss: 0.576957 || Avg Training Loss: 0.155912 || Training Accuracy: 0.952198 || Runtime: 0.14 mins
+Epoch: 052/100 || Training Loss: 0.033782 || Avg Training Loss: 0.138287 || Training Accuracy: 0.957610 || Runtime: 0.14 mins
+Epoch: 053/100 || Training Loss: 0.121067 || Avg Training Loss: 0.146473 || Training Accuracy: 0.956483 || Runtime: 0.14 mins
+Epoch: 054/100 || Training Loss: 0.030389 || Avg Training Loss: 0.139031 || Training Accuracy: 0.954228 || Runtime: 0.13 mins
+Epoch: 055/100 || Training Loss: 0.104850 || Avg Training Loss: 0.128245 || Training Accuracy: 0.957835 || Runtime: 0.14 mins
+Epoch: 056/100 || Training Loss: 0.221224 || Avg Training Loss: 0.135226 || Training Accuracy: 0.958512 || Runtime: 0.14 mins
+Epoch: 057/100 || Training Loss: 0.349958 || Avg Training Loss: 0.141529 || Training Accuracy: 0.960316 || Runtime: 0.14 mins
+Epoch: 058/100 || Training Loss: 0.053593 || Avg Training Loss: 0.134015 || Training Accuracy: 0.957384 || Runtime: 0.14 mins
+Epoch: 059/100 || Training Loss: 0.632533 || Avg Training Loss: 0.146709 || Training Accuracy: 0.954453 || Runtime: 0.13 mins
+Epoch: 060/100 || Training Loss: 0.256125 || Avg Training Loss: 0.131853 || Training Accuracy: 0.959414 || Runtime: 0.14 mins
+Epoch: 061/100 || Training Loss: 0.056642 || Avg Training Loss: 0.129906 || Training Accuracy: 0.961669 || Runtime: 0.14 mins
+Epoch: 062/100 || Training Loss: 0.064561 || Avg Training Loss: 0.128147 || Training Accuracy: 0.959188 || Runtime: 0.14 mins
+Epoch: 063/100 || Training Loss: 0.041511 || Avg Training Loss: 0.102048 || Training Accuracy: 0.968433 || Runtime: 0.14 mins
+Epoch: 064/100 || Training Loss: 0.054737 || Avg Training Loss: 0.091167 || Training Accuracy: 0.972943 || Runtime: 0.14 mins
+Epoch: 065/100 || Training Loss: 0.154474 || Avg Training Loss: 0.111135 || Training Accuracy: 0.965276 || Runtime: 0.14 mins
+Epoch: 066/100 || Training Loss: 0.012108 || Avg Training Loss: 0.107459 || Training Accuracy: 0.965051 || Runtime: 0.14 mins
+Epoch: 067/100 || Training Loss: 0.382986 || Avg Training Loss: 0.120028 || Training Accuracy: 0.963021 || Runtime: 0.14 mins
+Epoch: 068/100 || Training Loss: 0.107587 || Avg Training Loss: 0.131391 || Training Accuracy: 0.958737 || Runtime: 0.13 mins
+Epoch: 069/100 || Training Loss: 0.080809 || Avg Training Loss: 0.113948 || Training Accuracy: 0.963698 || Runtime: 0.14 mins
+Epoch: 070/100 || Training Loss: 0.101232 || Avg Training Loss: 0.106391 || Training Accuracy: 0.969560 || Runtime: 0.14 mins
+Epoch: 071/100 || Training Loss: 0.070022 || Avg Training Loss: 0.097259 || Training Accuracy: 0.967531 || Runtime: 0.13 mins
+Epoch: 072/100 || Training Loss: 0.065514 || Avg Training Loss: 0.104490 || Training Accuracy: 0.966404 || Runtime: 0.13 mins
+Epoch: 073/100 || Training Loss: 0.014337 || Avg Training Loss: 0.109669 || Training Accuracy: 0.966178 || Runtime: 0.14 mins
+Epoch: 074/100 || Training Loss: 0.204496 || Avg Training Loss: 0.095881 || Training Accuracy: 0.968884 || Runtime: 0.14 mins
+Epoch: 075/100 || Training Loss: 0.098901 || Avg Training Loss: 0.106459 || Training Accuracy: 0.968207 || Runtime: 0.14 mins
+Epoch: 076/100 || Training Loss: 0.193964 || Avg Training Loss: 0.100795 || Training Accuracy: 0.970011 || Runtime: 0.14 mins
+Epoch: 077/100 || Training Loss: 0.454099 || Avg Training Loss: 0.118385 || Training Accuracy: 0.963923 || Runtime: 0.13 mins
+Epoch: 078/100 || Training Loss: 0.139070 || Avg Training Loss: 0.111428 || Training Accuracy: 0.963472 || Runtime: 0.13 mins
+Epoch: 079/100 || Training Loss: 0.026648 || Avg Training Loss: 0.112236 || Training Accuracy: 0.965727 || Runtime: 0.13 mins
+Epoch: 080/100 || Training Loss: 0.106052 || Avg Training Loss: 0.105465 || Training Accuracy: 0.967756 || Runtime: 0.13 mins
+Epoch: 081/100 || Training Loss: 0.033333 || Avg Training Loss: 0.103982 || Training Accuracy: 0.968207 || Runtime: 0.13 mins
+Epoch: 082/100 || Training Loss: 0.184775 || Avg Training Loss: 0.088608 || Training Accuracy: 0.974521 || Runtime: 0.13 mins
+Epoch: 083/100 || Training Loss: 0.061412 || Avg Training Loss: 0.099047 || Training Accuracy: 0.968207 || Runtime: 0.13 mins
+Epoch: 084/100 || Training Loss: 0.156475 || Avg Training Loss: 0.090861 || Training Accuracy: 0.972717 || Runtime: 0.13 mins
+Epoch: 085/100 || Training Loss: 0.142476 || Avg Training Loss: 0.080215 || Training Accuracy: 0.973393 || Runtime: 0.13 mins
+Epoch: 086/100 || Training Loss: 0.072558 || Avg Training Loss: 0.099722 || Training Accuracy: 0.967982 || Runtime: 0.13 mins
+Epoch: 087/100 || Training Loss: 0.164911 || Avg Training Loss: 0.105642 || Training Accuracy: 0.968433 || Runtime: 0.13 mins
+Epoch: 088/100 || Training Loss: 0.007625 || Avg Training Loss: 0.099768 || Training Accuracy: 0.967982 || Runtime: 0.13 mins
+Epoch: 089/100 || Training Loss: 0.753425 || Avg Training Loss: 0.100506 || Training Accuracy: 0.969335 || Runtime: 0.13 mins
+Epoch: 090/100 || Training Loss: 0.028552 || Avg Training Loss: 0.124902 || Training Accuracy: 0.958286 || Runtime: 0.13 mins
+Epoch: 091/100 || Training Loss: 0.069368 || Avg Training Loss: 0.089256 || Training Accuracy: 0.971139 || Runtime: 0.13 mins
+Epoch: 092/100 || Training Loss: 0.188841 || Avg Training Loss: 0.066620 || Training Accuracy: 0.978579 || Runtime: 0.14 mins
+Epoch: 093/100 || Training Loss: 0.054127 || Avg Training Loss: 0.072124 || Training Accuracy: 0.976099 || Runtime: 0.13 mins
+Epoch: 094/100 || Training Loss: 0.062450 || Avg Training Loss: 0.062475 || Training Accuracy: 0.979932 || Runtime: 0.13 mins
+Epoch: 095/100 || Training Loss: 0.101067 || Avg Training Loss: 0.067144 || Training Accuracy: 0.978579 || Runtime: 0.13 mins
+Epoch: 096/100 || Training Loss: 0.008999 || Avg Training Loss: 0.080538 || Training Accuracy: 0.975197 || Runtime: 0.13 mins
+Epoch: 097/100 || Training Loss: 0.414947 || Avg Training Loss: 0.087496 || Training Accuracy: 0.972492 || Runtime: 0.13 mins
+Epoch: 098/100 || Training Loss: 0.147285 || Avg Training Loss: 0.082726 || Training Accuracy: 0.972266 || Runtime: 0.13 mins
+Epoch: 099/100 || Training Loss: 0.065166 || Avg Training Loss: 0.079620 || Training Accuracy: 0.973168 || Runtime: 0.13 mins
+Epoch: 100/100 || Training Loss: 0.003457 || Avg Training Loss: 0.057942 || Training Accuracy: 0.981511 || Runtime: 0.14 mins
+
+Testing Phase
+Test Loss: 2.945634365081787 || Testing Accuracy: 0.583045
+Total time: 16.32 minutes

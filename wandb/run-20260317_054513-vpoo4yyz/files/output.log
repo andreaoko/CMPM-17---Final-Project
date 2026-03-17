@@ -1,0 +1,27 @@
+CUDA is available. Using GPU.
+
+Train inputs: torch.Size([64, 3, 224, 224])
+Train outputs: torch.Size([64])
+
+Test inputs: torch.Size([16, 3, 224, 224])
+Test outputs: torch.Size([16])
+
+Validation inputs: torch.Size([16, 3, 224, 224])
+Validation outputs: torch.Size([16])
+
+Image shape: torch.Size([64, 3, 224, 224])
+Output shape: torch.Size([64, 25])
+Epoch: 001/020 || Training Loss: 3.315620 || Avg Training Loss: 3.045937 || Training Accuracy: 0.112740 || Runtime: 0.13 mins
+Epoch: 002/020 || Training Loss: 2.729917 || Avg Training Loss: 2.794403 || Training Accuracy: 0.189402 || Runtime: 0.13 mins
+Epoch: 003/020 || Training Loss: 2.824288 || Avg Training Loss: 2.634734 || Training Accuracy: 0.232469 || Runtime: 0.13 mins
+Epoch: 004/020 || Training Loss: 2.656134 || Avg Training Loss: 2.510078 || Training Accuracy: 0.262683 || Runtime: 0.12 mins
+Epoch: 005/020 || Training Loss: 2.380528 || Avg Training Loss: 2.411425 || Training Accuracy: 0.293799 || Runtime: 0.13 mins
+Epoch: 006/020 || Training Loss: 2.156561 || Avg Training Loss: 2.334184 || Training Accuracy: 0.305975 || Runtime: 0.13 mins
+Epoch: 007/020 || Training Loss: 1.929264 || Avg Training Loss: 2.241242 || Training Accuracy: 0.335513 || Runtime: 0.13 mins
+Epoch: 008/020 || Training Loss: 1.915674 || Avg Training Loss: 2.182274 || Training Accuracy: 0.348591 || Runtime: 0.12 mins
+Epoch: 009/020 || Training Loss: 2.240468 || Avg Training Loss: 2.125828 || Training Accuracy: 0.362120 || Runtime: 0.13 mins
+Traceback (most recent call last):
+  File "/workspace/repo/CMPM-17---Final-Project/runtime_model_draft_latest.py", line 197, in <module>
+    images, labels = images.to(device), labels.to(device)   #moves the images and labels to the GPU
+                     ^^^^^^^^^^^^^^^^^
+KeyboardInterrupt

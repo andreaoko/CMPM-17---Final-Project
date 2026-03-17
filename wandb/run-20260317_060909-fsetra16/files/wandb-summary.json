@@ -1,0 +1,1 @@
+{"_timestamp":1.7737279802143042e+09,"_step":134,"Test Loss":3.549497127532959,"Validation Loss":1.6968423128128052,"Test F1 Score - Macro":0.413672362453621,"_runtime":230,"Epoch":20,"Training Accuracy":0.5341600901916572,"_wandb":{"runtime":230},"Train Loss":1.800433874130249,"Test Accuracy":0.43944636678200694}

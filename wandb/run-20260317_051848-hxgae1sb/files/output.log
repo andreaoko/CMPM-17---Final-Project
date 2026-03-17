@@ -27,3 +27,11 @@ Epoch: 013/020 || Training Loss: 0.812298 || Avg Training Loss: 1.069134 || Trai
 Epoch: 014/020 || Training Loss: 0.974640 || Avg Training Loss: 0.992015 || Training Accuracy: 0.698083 || Runtime: 0.13 mins
 Epoch: 015/020 || Training Loss: 0.797454 || Avg Training Loss: 0.911255 || Training Accuracy: 0.725592 || Runtime: 0.13 mins
 Epoch: 016/020 || Training Loss: 1.086738 || Avg Training Loss: 0.822347 || Training Accuracy: 0.753326 || Runtime: 0.13 mins
+Epoch: 017/020 || Training Loss: 0.778240 || Avg Training Loss: 0.778041 || Training Accuracy: 0.764825 || Runtime: 0.13 mins
+Epoch: 018/020 || Training Loss: 0.608487 || Avg Training Loss: 0.703353 || Training Accuracy: 0.784893 || Runtime: 0.13 mins
+Epoch: 019/020 || Training Loss: 0.818271 || Avg Training Loss: 0.666566 || Training Accuracy: 0.799324 || Runtime: 0.13 mins
+Epoch: 020/020 || Training Loss: 0.901752 || Avg Training Loss: 0.633341 || Training Accuracy: 0.809470 || Runtime: 0.13 mins
+
+Testing Phase
+Test Loss: 0.823161780834198 || Testing Accuracy: 0.534602
+Total time: 3.03

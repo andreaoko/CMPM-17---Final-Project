@@ -28,13 +28,14 @@ from sklearn.metrics import f1_score                    #When running on GPU use
 from sklearn.metrics import confusion_matrix, ConfusionMatrixDisplay
 import matplotlib.pyplot as plt
 
-# Set epochs
-NUM_EPOCHS = 100
+# Set parameters
+NUM_EPOCHS = 40
+learn_rate = 0.0002
 
 df = pd.read_csv("DownloadedImageData_NewPaths.csv")             #load data into dataframe
 
 if __name__ == '__main__': #skip these for demo
-    run = wandb.init(project="Final Plant Family Models", name="All Graphs - 100 Epochs")
+    run = wandb.init(project="Final Plant Family Models", name="Test E=40 LR=0.0002")
 
     #Checking for device automatically
     if torch.cuda.is_available():
@@ -128,7 +129,7 @@ if __name__ == '__main__': #Check dataloader outputs (not if importing this as a
 class ConvNet(nn.Module):
     def __init__(self):
         super().__init__()                          #nn.Conv2d order: ([in_channels(RGB), out channels, kernel size, stride, padding])
-        self.conv1 = nn.Conv2d(3, 32, 3, 1 ,1)      #apply 32 3x3 filters to the image; this doubles in size through each convolution layer
+        self.conv1 = nn.Conv2d(3, 32, 3, 1 ,1)   #apply 32 3x3 filters to the image; this doubles in size through each convolution layer
         self.bN1 = nn.BatchNorm2d(32)               #BatchNorm2D adjusts values to have a std of 1 and mean of 0. Helps the model train faster and have more consistent results
         self.conv2 = nn.Conv2d(32, 64, 3, 1, 1)
         self.bN2 = nn.BatchNorm2d(64)
@@ -173,7 +174,7 @@ if __name__ == '__main__': # Prevents the model from rerunning when importing to
 
     #Training, Validation and Testing Loop
 
-    optimizer = torch.optim.Adam(model.parameters(), lr=0.001)                                                                  
+    optimizer = torch.optim.Adam(model.parameters(), lr=learn_rate)                                                                  
     criterion = nn.CrossEntropyLoss().to(device)  
 
 
@@ -285,7 +286,7 @@ if __name__ == '__main__': # Prevents the model from rerunning when importing to
     plt.savefig(f'confusion_matrix/confusion_matrix_{NUM_EPOCHS:03d}epochs.png') #this will overwrite previous
                                          
 
-    print(f"Total time: {((time.time() - training_loop_time)/60):.2f}")             #print total time for the whole training loop to process
+    print(f"Total time: {((time.time() - training_loop_time)/60):.2f} minutes")             #print total time for the whole training loop to process
 
     # Save the model based on epoch number and current time
     torch.save(model.state_dict(), f"saved_models/final_save_{NUM_EPOCHS:03d}_epochs_{int(time.time())}.pt")             #Saves the model to a file called final_save.pt
