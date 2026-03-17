@@ -272,7 +272,7 @@ if __name__ == '__main__': # Prevents the model from rerunning when importing to
 
 
     for epoch in range(NUM_EPOCHS):
-        run({"Train Loss": train_loss},
+        run.log({"Train Loss": train_loss},
             {"Validation Loss": val_loss},
             {"Test Loss": test_loss},
             {"Test Accuracy": test_accuracy},

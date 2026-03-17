@@ -1,0 +1,21 @@
+CUDA is available. Using GPU.
+
+Train inputs: torch.Size([64, 3, 224, 224])
+Train outputs: torch.Size([64])
+
+Test inputs: torch.Size([16, 3, 224, 224])
+Test outputs: torch.Size([16])
+
+Validation inputs: torch.Size([16, 3, 224, 224])
+Validation outputs: torch.Size([16])
+
+Image shape: torch.Size([64, 3, 224, 224])
+Output shape: torch.Size([64, 25])
+Epoch: 001/001 || Training Loss: 2.782680 || Avg Training Loss: 3.851818 || Training Accuracy: 0.110936 || Runtime: 0.13 mins
+
+Testing Phase
+Test Loss: 2.944082498550415 || Testing Accuracy: 0.128028
+Traceback (most recent call last):
+  File "/workspace/repo/CMPM-17---Final-Project/runtime_model_draft_latest.py", line 275, in <module>
+    run({"Train Loss": train_loss},
+TypeError: 'Run' object is not callable
