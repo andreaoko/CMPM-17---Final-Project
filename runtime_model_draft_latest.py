@@ -29,12 +29,12 @@ from sklearn.metrics import confusion_matrix, ConfusionMatrixDisplay
 import matplotlib.pyplot as plt
 
 # Set epochs
-NUM_EPOCHS = 30
+NUM_EPOCHS = 3
 
 df = pd.read_csv("DownloadedImageData_NewPaths.csv")             #load data into dataframe
 
 if __name__ == '__main__': #skip these for demo
-    run = wandb.init(project="Final Plant Family Models", name="All Graphs (Test - 30 epochs)")
+    run = wandb.init(project="Final Plant Family Models", name="Train Graph Only - 3 epochs")
 
     #Checking for device automatically
     if torch.cuda.is_available():
@@ -208,8 +208,9 @@ if __name__ == '__main__': # Prevents the model from rerunning when importing to
             optimizer.zero_grad()       #reset slope calculations
             train_loss.backward()       #calculates slopes  
             optimizer.step()            #updates weights
-            
 
+        run.log({"Train Loss":train_loss})
+            
 
         train_accuracy = train_correct_vals / train_total_imgs          #calcualte train accuracy by dividing total correct values over total images processed
         avg_train_loss = train_total_loss / len(train_dataloader)       #caluclate average training loss by dividing total loss value over the total items in the train_dataloaders

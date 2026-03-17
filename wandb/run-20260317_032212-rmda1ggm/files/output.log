@@ -1,0 +1,20 @@
+CUDA is available. Using GPU.
+
+Train inputs: torch.Size([64, 3, 224, 224])
+Train outputs: torch.Size([64])
+
+Test inputs: torch.Size([16, 3, 224, 224])
+Test outputs: torch.Size([16])
+
+Validation inputs: torch.Size([16, 3, 224, 224])
+Validation outputs: torch.Size([16])
+
+Image shape: torch.Size([64, 3, 224, 224])
+Output shape: torch.Size([64, 25])
+Epoch: 001/030 || Training Loss: 2.829054 || Avg Training Loss: 4.209574 || Training Accuracy: 0.120857 || Runtime: 0.13 mins
+Epoch: 002/030 || Training Loss: 3.078735 || Avg Training Loss: 2.858589 || Training Accuracy: 0.178354 || Runtime: 0.13 mins
+Traceback (most recent call last):
+  File "/workspace/repo/CMPM-17---Final-Project/runtime_model_draft_latest.py", line 203, in <module>
+    train_correct_vals += torch.sum((tr_preds == labels)).item()       #Compare predictions to labels. If predictions are correct add to a total value
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+KeyboardInterrupt
