@@ -29,12 +29,12 @@ from sklearn.metrics import confusion_matrix, ConfusionMatrixDisplay
 import matplotlib.pyplot as plt
 
 # Set epochs
-NUM_EPOCHS = 1
+NUM_EPOCHS = 30
 
 df = pd.read_csv("DownloadedImageData_NewPaths.csv")             #load data into dataframe
 
 if __name__ == '__main__': #skip these for demo
-    run = wandb.init(project="Final Plant Family Models", name="All Graphs (Test)")
+    run = wandb.init(project="Final Plant Family Models", name="All Graphs (Test - 30 epochs)")
 
     #Checking for device automatically
     if torch.cuda.is_available():
@@ -272,21 +272,21 @@ if __name__ == '__main__': # Prevents the model from rerunning when importing to
 
 
     for epoch in range(NUM_EPOCHS):
-        run.log({"Train Loss": train_loss},
-            {"Validation Loss": val_loss},
-            {"Test Loss": test_loss},
-            {"Test Accuracy": test_accuracy},
-            {"Test F1 Score - Macro": f1_macro}
-            )
+        run.log({"Train Loss": train_loss})
+        run.log({"Validation Loss": val_loss})
+        run.log({"Test Loss": test_loss})
+        run.log({"Test Loss": test_loss})
+        run.log({"Test Accuracy": test_accuracy})
+        run.log({"Test F1 Score - Macro": f1_macro})
 
-        label_names = test_dataset.classes
+    label_names = test_dataset.classes
         
-        cm = confusion_matrix(labels_list, preds_list)
-        disp = ConfusionMatrixDisplay(confusion_matrix=cm, display_labels=label_names)
-        disp.plot()
-        plt.xticks(rotation = 'vertical')
-        plt.tight_layout() # make tick labels fit
-        plt.savefig(f'confusion_matrix/confusion_matrix_{NUM_EPOCHS:03d}epochs.png') #this will overwrite previous
+    cm = confusion_matrix(labels_list, preds_list)
+    disp = ConfusionMatrixDisplay(confusion_matrix=cm, display_labels=label_names)
+    disp.plot()
+    plt.xticks(rotation = 'vertical')
+    plt.tight_layout() # make tick labels fit
+    plt.savefig(f'confusion_matrix/confusion_matrix_{NUM_EPOCHS:03d}epochs.png') #this will overwrite previous
                                          
 
     print(f"Total time: {((time.time() - training_loop_time)/60):.2f}")             #print total time for the whole training loop to process
