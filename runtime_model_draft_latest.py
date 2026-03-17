@@ -163,6 +163,7 @@ if __name__ == '__main__': # Prevents the model from rerunning when importing to
 
     #Check output of the model
     for images, label in train_dataloader:
+        images, labels = images.to(device), labels.to(device)
         print(f'\nImage shape: {images.shape}')                  #print dimensions of input image shape
         output_model = model(images)                                                                             
         print(f'Output shape: {output_model.shape}')                                                                #print the output tensor of model shape
