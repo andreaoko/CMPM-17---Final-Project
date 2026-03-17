@@ -266,15 +266,13 @@ if __name__ == '__main__': # Prevents the model from rerunning when importing to
             
             f1_macro = f1_score(labels_list, preds_list, average="macro")      #compute f1 score
 
-            run.log({"Test F1 Score - Macro": f1_macro})
+            run.log({"Test F1 Score - Macro": f1_macro}) #Working F1 Score Macro
             run.log({"Test Loss":test_loss})        #Working Test Loss graph
 
         test_accuracy = test_correct_vals / test_total_imgs
         print(f"Test Loss: {test_loss.item()} || Testing Accuracy: {test_accuracy:.6f}")
 
         run.log({"Epoch":epoch+1, "Test Accuracy":test_accuracy}) 
-
-
 
 
     label_names = test_dataset.classes
