@@ -34,7 +34,7 @@ NUM_EPOCHS = 3
 df = pd.read_csv("DownloadedImageData_NewPaths.csv")             #load data into dataframe
 
 if __name__ == '__main__': #skip these for demo
-    run = wandb.init(project="Final Plant Family Models", name=" Validation Graph Only - 3 epochs")
+    run = wandb.init(project="Final Plant Family Models", name=" Test Validation Graph Only - 3 epochs")
 
     #Checking for device automatically
     if torch.cuda.is_available():
@@ -209,13 +209,15 @@ if __name__ == '__main__': # Prevents the model from rerunning when importing to
             train_loss.backward()       #calculates slopes  
             optimizer.step()            #updates weights
 
-        run.log({"Train Loss":train_loss})         #Working train loss graph
+        run.log({"Epoch":epoch+1, "Train Loss":train_loss})         #Working train loss graph
             
 
         train_accuracy = train_correct_vals / train_total_imgs          #calcualte train accuracy by dividing total correct values over total images processed
         avg_train_loss = train_total_loss / len(train_dataloader)       #caluclate average training loss by dividing total loss value over the total items in the train_dataloaders
         
         epoch_time = time.time() - epoch_start_time             #Calculate the time at the end of the epoch
+
+        run.log({"Epoch":epoch+1, "Training Accuracy":train_accuracy})           #Working training accuracy graph
 
         print(f"Epoch: {epoch+1:03d}/{NUM_EPOCHS:03d} || Training Loss: {train_loss.item():.6f} || Avg Training Loss: {avg_train_loss:.6f} ||" 
             f" Training Accuracy: {train_accuracy:.6f} || Runtime: {(epoch_time/60):.2f} mins")
@@ -235,7 +237,7 @@ if __name__ == '__main__': # Prevents the model from rerunning when importing to
                 v_correct_vals += torch.sum((v_preds == labels)).item()                                                    
                 v_total_imgs += labels.size(0)    
 
-            run.log({"Validation Loss": val_loss})      #Working validation graph
+            run.log({"Epoch":epoch+1, "Validation Loss": val_loss})      #Working validation graph
 
 
     print("\nTesting Phase")
@@ -246,6 +248,7 @@ if __name__ == '__main__': # Prevents the model from rerunning when importing to
 
         labels_list = []                       #labels and preds for both confusion matrix and f1 score
         preds_list = []                        
+
 
         for images, labels in test_dataloader:
             images, labels = images.to(device), labels.to(device)           #moves the images and labels to the GPU
@@ -260,11 +263,18 @@ if __name__ == '__main__': # Prevents the model from rerunning when importing to
 
             preds_list.extend(tt_preds.cpu()) # Move to CPU and add to list of predictions
             labels_list.extend(labels.cpu()) # Move to CPU and add to list of labels
+            
+            f1_macro = f1_score(labels_list, preds_list, average="macro")      #compute f1 score
+
+            run.log({"Test F1 Score - Macro": f1_macro})
+            run.log({"Test Loss":test_loss})        #Working Test Loss graph
 
         test_accuracy = test_correct_vals / test_total_imgs
         print(f"Test Loss: {test_loss.item()} || Testing Accuracy: {test_accuracy:.6f}")
 
-        f1_macro = f1_score(labels_list, preds_list, average="macro")      #compute f1 score
+        run.log({"Epoch":epoch+1, "Test Accuracy":test_accuracy}) 
+
+
 
 
     label_names = test_dataset.classes
