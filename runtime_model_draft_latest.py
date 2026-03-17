@@ -29,12 +29,12 @@ from sklearn.metrics import confusion_matrix, ConfusionMatrixDisplay
 import matplotlib.pyplot as plt
 
 # Set epochs
-NUM_EPOCHS = 3
+NUM_EPOCHS = 100
 
 df = pd.read_csv("DownloadedImageData_NewPaths.csv")             #load data into dataframe
 
 if __name__ == '__main__': #skip these for demo
-    run = wandb.init(project="Final Plant Family Models", name=" Test Validation Graph Only - 3 epochs")
+    run = wandb.init(project="Final Plant Family Models", name="All Graphs - 100 Epochs")
 
     #Checking for device automatically
     if torch.cuda.is_available():
